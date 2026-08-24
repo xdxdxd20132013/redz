@@ -1,4002 +1,2450 @@
+local a=...
+assert(type(a)=="table","package importer not found")
+assert(type(a.Import)=="function","Import not found")
 
-local a=cloneref or(function(...)return...end)
+local b=a:Import"RobloxServices"
+local c=a:Import"Connections"
+local d=a:Import"Obfuscated"
+local e=a:Import"Settings"
 
-local b=delfolder or deletefolder
-local c=delfile or deletefile
-local d=makefolder
-local e=writefile
-local f=readfile
+local f=(getgenv or getrenv or getfenv)()
 
-local g=setmetatable({},{
-__index=function(g,h)
-rawset(g,h,a(game:GetService(h)))
-return rawget(g,h)
-end
-})
+local g=b.VirtualInputManager
+local h=b.CollectionService
+local i=b.ReplicatedStorage
+local j=b.TeleportService
+local k=b.TweenService
+local l=b.RunService
+local m=b.Players
 
-local h=g.MarketplaceService
-local i=g.UserInputService
-local j=g.TweenService
-local k=g.HttpService
-local l=g.RunService
-local m=g.Players
+local n=i:WaitForChild"Remotes"
+local o=n:WaitForChild"CommF_"
+local p=n:WaitForChild"CommE"
 
-local n=l.Heartbeat
+local q=workspace:WaitForChild"ChestModels"
+local r=workspace:WaitForChild"_WorldOrigin"
+local s=workspace:WaitForChild"Characters"
+local t=workspace:WaitForChild"SeaBeasts"
+local u=workspace:WaitForChild"Enemies"
+local v=workspace:WaitForChild"Boats"
+local w=workspace:WaitForChild"Map"
 
-local o=m.LocalPlayer
-local p=o:GetMouse()
+local x=r:WaitForChild"EnemySpawns"
+local y=r:WaitForChild"Locations"
 
-local q=(gethui or function()return g.CoreGui end)()
+local z=l.RenderStepped
+local A=l.Heartbeat
+local B=l.Stepped
+local C=m.LocalPlayer
 
-local r={
-Darker={
-Colors={
-Background=ColorSequence.new{
-ColorSequenceKeypoint.new(0.00,Color3.fromRGB(25,25,25)),
-ColorSequenceKeypoint.new(0.50,Color3.fromRGB(32.5,32.5,32.5)),
-ColorSequenceKeypoint.new(1.00,Color3.fromRGB(25,25,25))
-},
-Primary=Color3.fromRGB(88,101,242),
-OnPrimary=Color3.fromRGB(61,67,135),
-ScrollBar=Color3.fromRGB(1,76,105),
-Stroke=Color3.fromRGB(45,45,45),
+local D=C:WaitForChild"Data"
+local E=D:WaitForChild"Level"
+local F=D:WaitForChild"Fragments"
+local G=D:WaitForChild"Beli"
 
-Error=Color3.fromRGB(255,102,102),
-Icons=Color3.fromRGB(232,233,235),
+local H=i:WaitForChild"Modules"
+local I=H:WaitForChild"Net"
 
-JoinButton=Color3.fromRGB(37,128,69),
-Link=Color3.fromRGB(40,150,255),
+local J={"NULL"}
 
-Dialog={
-Background=Color3.fromRGB(28,28,28)
-},
-Buttons={
-Holding=Color3.fromRGB(34,34,34),
-Default=Color3.fromRGB(28,28,30)
-},
-Border={
-Holding=Color3.fromRGB(60,60,60),
-Default=Color3.fromRGB(38,38,38),
-},
-Text={
-Default=Color3.fromRGB(255,255,255),
-Dark=Color3.fromRGB(200,200,200),
-Darker=Color3.fromRGB(175,175,175),
-},
-Slider={
-SliderBar=Color3.fromRGB(1,76,105),
-SliderNumber=Color3.fromRGB(232,233,235),
-},
-Dropdown={
-Holder=Color3.fromRGB(30,30,30),
-}
-},
-Icons={
-Error="rbxassetid://10709752996",
-Button="rbxassetid://10709791437",
-Close="rbxassetid://10747384394",
-TextBox="rbxassetid://15637081879",
-Search="rbxassetid://10734943674",
-Keybind="rbxassetid://10734982144",
-Dropdown={
-Open="rbxassetid://10709791523",
-Close="rbxassetid://10709790948"
-}
-},
-Font={
-Normal=Enum.Font.BuilderSans,
-Medium=Enum.Font.BuilderSansMedium,
-Bold=Enum.Font.BuilderSansBold,
-ExtraBold=Enum.Font.BuilderSansExtraBold,
-SliderValue=Enum.Font.FredokaOne
-},
-BackgroundTransparency=0.03
-}
-}
+local K=string.upper(if identifyexecutor then identifyexecutor()else"NULL")
+local L=table.find(J,K)~=nil
 
-for s,t in r do
-t.Name=s
-table.freeze(t)
+local M=(not L and hookmetamethod)or(function(...)return...end)
+local N=(not L and hookfunction)or(function(...)return...end)
+
+local O=sethiddenproperty
+local P=setsimulationradius
+
+local Q=setupvalue or(debug and debug.setupvalue)
+local R=getupvalue or(debug and debug.getupvalue)
+
+local S=i:FindFirstChild"PrivateServerOwnerId"
+local T=if S then S.Value~=0 else true
+
+local U=0
+local V local W=function(
+
+W)
+if(tick()-U)>0 then
+U=tick()+5
+
+if P then
+pcall(P,W)
 end
 
-local s={
-Information={
-Version="v2.0.1",
-GitHubOwner="tlredz"
-},
-Default={
-Theme="Darker",
-UISize=UDim2.fromOffset(550,380),
-TabSize=160
-},
-
-Themes=r,
-
-Connections={},
-Options={},
-Icons={},
-Tabs={}
-}
-
-s.Info=s.Information
-s.Save=s.Default
-
-local t=workspace.CurrentCamera.ViewportSize local u=function(
-
-u, v, w)
-table.insert(s.Connections,u[w or"Connect"](u,v))end
+if O then
+pcall(O,C,"SimulationRadius",W)
+end
+end end local aa=function(
 
 
-local v={}
-v.__index=v local w=function(
+X, Y)
+local Z={}
 
-w, x)
-for y in x:gmatch"[^%.]+"do
-w=w[y]
+for _,aa in ipairs(X)do
+Z[aa]=if type(Y)=="table"then{}else Y
 end
 
-return w end local x=function(
+return Z end local ab=function()
 
 
-x, y, z, A)
-if not A then
-A=s.CurrentTheme
-end
 
-x[y]=w(A,if type(z)=="function"then z()else z)end local y=function(
+local X={}
+
+local Y={}
+local Z={}
+local _={}
+
+local ab=d.SafeObject
+local ac=ab.Clone
+local ad=aa(d.OriginalProperties,true)local ae=function(
+
+ae)
+return type(ae)=="string"end
 
 
-y, z, A)
-for B,C in A do
-x(z,B,C,y)
-end end local z=function(
+local af="CanCollide"
 
+local ag
+local ah
 
-z, A)
-if d then
-local B=z:split"/"
-B[#B]=nil
-
-local C=table.concat(B,"/")
-
-if C~=""and(isfolder==nil or not isfolder(C))then
-d(C)
+ag=M(game,"__index",function(ai,aj)
+local ak=Z[ai]
+if ak and ae(aj)and not ad[aj]then
+ai=ak
+elseif aj==af then
+local al=_[ai]
+if al then
+return al
 end
 end
 
-e(z,A)end
-
-
-local A=false
-
-local B={
-MAX_SCALE=1.6,
-MIN_SCALE=0.6,
-
-TEXTBOX={
-PLACEHOLDER_TEXT="Input"
-}
-}
-
-function v:add(C,D)
-self.Descendants[D]=C
-
-if self.IS_RENDERING then
-y(s.CurrentTheme,C,D)
-end
+local al=Y[ai]
+if al and al[aj]~=nil then
+return al[aj]
 end
 
-function v:update()
-if self.IS_RENDERING and not self.UPDATED_OBJECTS then
-local C=s.CurrentTheme
-self.UPDATED_OBJECTS=true
-
-for D,E in self.Descendants do
-local F=typeof(E)
-if F=="table"then E:update()continue end
-
-y(C,E,D)
-end
-end
-end
-
-function v:destroy()
-local C=self.Parent and table.find(self.Parent.Descendants)
-
-if C then
-table.remove(self.Parent.Descendants,C)
-end
-
-table.clear(self.Descendants)
-setmetatable(self,nil)
-end
-
-function v:changeRendering(C)
-if self.IS_RENDERING~=C then
-self.IS_RENDERING=C
-self.UPDATED_OBJECTS=false
-end
-end
-
-function v:new()
-local C=setmetatable({
-IS_RENDERING=true,
-UPDATED_OBJECTS=false,
-Descendants={},
-Parent=self.Descendants~=nil and self or nil
-},v)
-
-if self.Descendants then
-table.insert(self.Descendants,C)
-end
-
-return C
-end
-
-local C=v:new()
-
-local D,E={}do
-local F={}
-
-local G={}do
-G.ElementsTable={
-Corner=function(H)
-return E("UICorner",{
-CornerRadius=H or UDim.new(0,8)
-})
-end,
-Stroke=function(H,I)
-return E("UIStroke",{
-Color=H or Color3.fromRGB(60,60,60),
-Thickness=I or 1
-})
-end,
-Image=function(H)
-return E("ImageLabel",{
-Image=H or"",
-BackgroundTransparency=1,
-Size=UDim2.fromScale(1,1)
-})
-end,
-Button=function()
-return E("TextButton",{
-Text="",
-Size=UDim2.fromScale(1,1),
-AutoButtonColor=false
-})
-end,
-Padding=function(H,I,J,K)
-return E("UIPadding",{
-PaddingLeft=H or UDim.new(0,10),
-PaddingRight=I or UDim.new(0,10),
-PaddingTop=J or UDim.new(0,10),
-PaddingBottom=K or UDim.new(0,10)
-})
-end,
-ListLayout=function(H)
-return E("UIListLayout",{
-Padding=H or UDim.new(0,5)
-})
-end,
-Text=function(H)
-return E("TextLabel",{
-BackgroundTransparency=1,
-Text=H or""
-})
-end,
-Gradient=function(H)
-return E("UIGradient",{
-Color=H
-})
-end
-}
-
-function G:Create(H,I,...)
-local J=self.ElementsTable[I]
-
-if J then
-local K=J(...)
-K.Parent=H
-return K
-end
-end
-end
-
-local H={}
-
-function H:Childs(I)
-for J=1,#I do
-I[J].Parent=self
-end
-end
-
-function H:Elements(I)
-for J,K in pairs(I)do
-if type(K)=="table"then
-D.SetProperties(G:Create(self,J),K)
-else
-G:Create(self,J,K)
-end
-end
-end
-
-function H:ThemeTag(I)
-local J=I.OBJECTS
-I.OBJECTS=nil
-return(J or C):add(self,I)
-end
-
-function D:SetProperties(I)
-for J,K in pairs(I)do
-if H[J]then
-H[J](self,K)
-else
-self[J]=K
-end
-end
-end
-
-function D:SetValues(...)
-local I=self
-
-for J,K in{...}do
-local L=typeof(K)
-
-if L=="table"then
-D.SetProperties(I,K)
-else
-I[if L=="string"then"Name"else"Parent"]=K
-end
-end
-
-return I
-end
-
-local I
-
-function D:Draggable(J,K,L)
-local M,N,O,P
-local Q=K or 0.28
-local R=0
-local S local T=function(
-
-T)
-local U=T.Position-N
-local V
-R=tick()
-
-if L then
-V=L(
-O.X.Scale,O.X.Offset+U.X/J.Scale,
-O.Y.Scale,O.Y.Offset+U.Y/J.Scale
-)
-else
-V=UDim2.new(
-O.X.Scale,O.X.Offset+U.X/J.Scale,
-O.Y.Scale,O.Y.Offset+U.Y/J.Scale
-)
-end
-self.Position=self.Position:Lerp(V,Q)end local U=function()
-
-
-
-while I==self do
-if(tick()-R)>=1 then
-S()
-break
-end
-task.wait()
-end end
-
-
-local V={
-[Enum.UserInputType.MouseButton1]=true,
-[Enum.UserInputType.Touch]=true
-}
-
-local W={
-[Enum.UserInputType.MouseMovement]=true,
-[Enum.UserInputType.Touch]=true
-}
-
-u(self.InputBegan,function(X)
-if A==false and I==nil and V[X.UserInputType]then
-N=X.Position
-O=self.Position
-I=self
-R=tick()
-A=true
-
-local Y;
-
-function S()
-A=false
-I=nil
-Y:Disconnect()
-end
-
-task.spawn(U)
-
-Y=X.Changed:Connect(function()
-if X.UserInputState==Enum.UserInputState.End then
-S()
-end
-end)
-end
+return ag(ai,aj)
 end)
 
-u(i.InputChanged,function(X)
-if I==self and W[X.UserInputType]then
-T(X)
+ah=M(game,"__namecall",function(ai,...)
+if Z[ai]then
+return ah(ab,...)
 end
+return ah(ai,...)
 end)
+
+function X.ProtectObject(ai)
+assert(ai,`ProtectObject -> Instance expeted, got {typeof(ai)}`)
+
+ai.Name=ab.Name
+Z[ai]=ac(ab)
 end
 
-function D:CreateNewTemplate(J)
-return D.CloneObject(F[self],J)
-end
+function X.UnprotectObject(ai)
+if X.IsProtected(ai)then return end
+assert(ai,`UnprotectObject -> Instance expeted, got {typeof(ai)}`)
 
-function D.new(J,...)
-return D.SetValues(Instance.new(J),...)
-end
-
-E=D.new
-end local F=function(
-
-F)
-if F==nil then
-return{}
-end
-
-if type(F)~="function"and type(F)~="table"then
-error(`Failed to get Callback: 'function', or 'table' expected, got {typeof(F)}`,2)
-end
-
-if type(F)~="function"then
-local G=F[1]
-local H=F[2]
-
-F=function(I)
-G[H]=I
+local aj=Z[ai]
+if aj then
+Z[ai]=nil
+aj:Destroy()
 end
 end
 
-return table.pack(F)end local G=function(
-
-
-G, ...)
-for H=1,#G do
-task.spawn(G[H],...)
-end end
-
-
-local H="redz-library-v5"
-local I=q:FindFirstChild(H)
-
-if not I then
-I=E("ScreenGui",H,q,{
-IgnoreGuiInset=true
-})
-end local J=function(
-
-J, K, L, M, ...)
-local N=TweenInfo.new(M,EasingStyle or Enum.EasingStyle.Quint,...)
-
-return j:Create(J,N,{
-[K]=L
-})end local K=function(
-
-
-K)
-local L={}
-for M=1,#K do
-rawset(L,K[M],true)
+function X.IsProtected(ai)
+return Z[ai]~=nil
 end
-return L end
 
+function X.HookProperty(ai,aj,ak)
+if not Y[ai]then
+Y[ai]={}
+end
+Y[ai][aj]=ak
+end
 
-local L=K(string.split"\n\t,_:;()[]#&=!. \"'*^<>$")local M=function(
+function X.UnhookProperty(ai,aj)
+local ak=Y[ai]
+if ak then
+ak[aj]=nil
 
-M)
-return string.gsub(M:lower(),".",function(N)
-return L[N]and""or N
-end)end local N=function(
-
-
-N)
-local O,P,Q=tostring(N),"",0
-
-for R=#O,1,-1 do
-P=O:sub(R,R)..P
-Q+=1
-
-if R>1 and Q%3==0 then
-P=","..P
+if next(ak)==nil then
+Y[ai]=nil
+end
 end
 end
 
-return P end local O=function(
-
-
-O)
-local P="rbxassetid://"
-return O:sub(1,#P)==P end local P=function(
-
-
-P)
-return(t.Y/450)*P end local Q=function(
-
-
-Q)
-local R=math.floor(Q/60)
-local S=math.floor(Q/60/60)
-Q=math.floor((Q-(R*60))*10)/10
-R=R-(S*60)
-
-if S>0 then
-return`{S}h {R}m {math.floor(Q)}s`
-elseif R>0 then
-return`{R}m {math.floor(Q)}s`
-else
-return tostring(Q)
-end end
-
-
-local R={}do
-local S={}
-local T={}
-local U={}
-local V={}
-
-local W
-local X
-local Y
-local Z
-local _
-local aa
-local ab
-local ac
-local ad
-local ae
-
-local af=""
-
-local ag={SelectedTab=1,Minimized=false}
-ag.__index=ag
-
-local ah={}
-ah.__index=ah
-
-local ai={}
-ai.__index=ai
-
-local aj={}
-aj.__index=aj
-
-local ak={}do local al=function()
-
-local al={}
-al.__index=function(am,an)
-return al[an]or rawget(ai,an)
+function X.SetNoclipObjects(ai)
+_=ai
 end
 
-return al end
+function X.Clear()
+table.clear(Z)
+table.clear(Y)
+X.ClearNoclipObjects()
+end
+
+X.OriginalIndex=ag
+X.OriginalNamecall=ah
+
+return X end
 
 
-local am=al()
-ak.TextBox=am
+local ac=(function()
+local ac=f.rz_hook_manager or ab()
+f.rz_hook_manager=ac
+return ac
+end)()
 
-local an=al()
-ak.Toggle=an
+local ad={
+SKILL_COOLDOWN=0.5,
+CLEAR_AFTER=50,
 
-local ao=al()
-ak.Slider=ao
-
-local ap=al()
-ak.Dropdown=ap
-
-local aq=al()
-ak.Keybind=aq
-
-local ar=al()
-ak.Dialog=ar local as=function()
-
-
-Z.Closed=true
-Z.Closing=false
-setmetatable(Z,nil)
-
-Z=nil
-aa.Parent=nil end local at=function()
-
-
-
-if Z~=nil then
-Z:Close()
-end end
-
-
-function ar:NewOption(au)
-local av=au[1]or au.Name or au.Title
-local aw=F(au[2]or au.Callback)
-
-table.insert(aw,at)
-
-assert(type(av)=="string",`"Dialog.NewOption.Name". 'string' expected, got {typeof(av)}`)
-
-local ax=E("TextButton",{
-AutoButtonColor=false,
-Size=UDim2.fromScale(0.2,1),
-BackgroundTransparency=1,
-TextSize=10,
-Text=av,
-Elements={
-Corner=UDim.new(1,0)
-},
-ThemeTag={
-BackgroundColor3="Colors.Buttons.Default",
-TextColor3="Colors.Text.Dark",
-Font="Font.Normal"
+SILENT_AIM_ENABLED=true,
+WALKSPEED_BYPASS_ENABLED=true,
 }
-})
 
-local ay=J(ax,"BackgroundTransparency",0,0.3)
-local az=J(ax,"BackgroundTransparency",1,0.3)
+local ae local af=function(
 
-u(ax.MouseLeave,function()az:Play()end)
-u(ax.MouseEnter,function()ay:Play()end)
-u(ax.Activated,function()G(aw)end)
+af)
+return af:gsub(if af:find"Lv. "then" %pLv. %d+%p"else" %pBoss%p","")end local ag=function(
 
-ax.Parent=aa.Template.Options
+
+ag)
+if ag.Parent==s then
+ag=m:GetPlayerFromCharacter(ag)
 end
 
-function ar:Close(au)
-if self.Closed or self.Closing or Z~=self then
+if tostring(ag.Team)=="Marines"and ag.Team==C.Team then
+return false
+elseif ag:HasTag(`Ally{C.Name}`)or C:HasTag(`Ally{ag.Name}`)then
+return false
+end
+
+return true end local ah=function()
+
+
+
+local ah=0
+
+return{
+__newindex=function(ai,aj,ak)
+if ah>=ad.CLEAR_AFTER then
+for al,X in ai do
+if typeof(X)=="Instance"and not X:IsDescendantOf(game)then
+rawset(ai,al,nil)
+end
+end
+ah=0
+end
+
+ah+=1
+return rawset(ai,aj,ak)
+end
+}end local ai=function(
+
+
+ai)
+return setmetatable({},{__index=function()return ai end})end
+
+
+local aj do
+local ak=ah()
+ak.__index=function(al,X)
+local Y=X:FindFirstChild(if X.Parent==t then"Health"else"Humanoid")
+
+if Y then
+al[X]=Y
+return Y
+end
+end
+
+aj=setmetatable({},ak)
+end local ak=function(
+
+ak)
+return ak[if ak.ClassName=="Humanoid"then"Health"else"Value"]end local al=function(
+
+
+al)
+if typeof(al)~="Vector3"then
+al=al.Position
+end
+return C:DistanceFromCharacter(al)end local X=function(
+
+
+X, Y)
+if Y then
+return ak(Y)>0
+elseif X then
+local Z=aj[X]
+
+if Z and Z.Parent==X then
+return ak(Z)>0
+else
+return X.Parent==v
+end
+end
+
+return false end local Y=function(
+
+
+Y)
+
+
+return error(Y,2)end local am=function(
+
+
+Z)
+local _;
+
+for am in string.gmatch(string.sub(Z,2,-1),"[^%.]+")do
+if not _ then
+_=`{am}.`
+else
+_..=am
+end
+end
+
+return tonumber(_)or 0 end local an=function(
+
+
+Z, _, an)
+table.insert(c,Z[an or"Connect"](Z,_))end local ao=function(
+
+
+Z)
+local _=h:GetTagged(Z)
+
+an(h:GetInstanceAddedSignal(Z),function(ao)
+table.insert(_,ao)
+end)
+
+return _ end local Z=function(
+
+
+Z)
+return Z:FindFirstChild(HitboxLimbs[math.random(#HitboxLimbs)])end local _=function(
+
+
+_)
+d.LockedTool(_)
+
+if _.Parent==C.Character then
+return true
+elseif _.Parent==C.Backpack then
+C.Character.Humanoid:EquipTool(_)
+return true
+end
+
+return false end local ap=function(
+
+
+ap, aq)
+if not X(C.Character)then
 return nil
 end
 
-self.Closing=true
+aq=aq or not ap
+ap=ap or e.FarmTool
 
-local av=J(self.TEMPLATE,"Size",self.NEW_SIZE,0.1)
-av:Play()
+local ar=ae
 
-if au then
-av.Completed:Wait()
-as()
-else
-u(av.Completed,as)
+if ar and ar.Parent and ar[if aq then"ToolTip"else"Name"]==ap then
+if _(ar)then
+return nil
 end
 end
 
-function ar.new(au,av)
-return setmetatable({
-TITLE_LABEL=au,
-DESCRIPTION_LABEL=au,
-Content=au.Text,
-Title=av.Text,
+if ap and not aq then
+local as=C.Backpack:FindFirstChild(ap)
 
-Closed=false,
-Closing=false,
-Kind="Dialog"
-},ar)
+if as then
+ae=as
+_(as)
 end
 
-function ap:SetEnabled(au)
-assert(type(au)=="table",`"Dropdown.SetEnabled[param 1]". 'table' expected, got {typeof(au)}`)
-
-self.SET_ENABLED_OPTIONS(au)
+return nil
 end
 
-function ap:Clear()
-self.CLEAR_DROPDOWN()
+for as,at in C.Backpack:GetChildren()do
+if at:IsA"Tool"and at.ToolTip==ap then
+ae=at
+_(at)
+return nil
 end
+end end
 
-function ap:NewOptions(...)
-self:Clear()
-self:Add(...)
-end
-
-function ap:GetOptionsCount()
-return#self.DROPDOWN_OPTIONS
-end
-
-function ap:Remove(...)
-local au={...}
-assert(#au>0,"'Dropdown.Remove' requires one or more options.")
-
-for av,aw in au do
-self.REMOVE_DROPDOWN_OPTION(aw)
-end
-end
-
-function ap:Add(...)
-local au={...}
-assert(#au>0,"'Dropdown.Add' requires one or more options.")
-
-for av,aw in au do
-self.ADD_DROPDOWN_OPTION(aw)
-end
-end
-
-function ap.new(au,av,aw,ax,ay)
-return setmetatable({
-CALLBACKS=ay,
-
-DESTROY_ELEMENT=av,
-VISIBLE_ELEMENT=av,
-
-TITLE_LABEL=aw,
-DESCRIPTION_LABEL=ax,
-Description=ax.Text,
-Title=aw.Text,
-
-Parent=au,
-Kind="Dropdown"
-},ap)
-end
-
-function ao:SetValue(au)
-assert(type(au)=="number",`"Slider.SetValue". 'number' expected, got {typeof(au)}`)
-
-if self.Value~=au then
-self.WHEN_VALUE_CHANGED(au)
-end
-end
-
-function ao.new(au,av,aw,ax,ay)
-return setmetatable({
-CALLBACKS=ay,
-
-DESTROY_ELEMENT=av,
-VISIBLE_ELEMENT=av,
-
-TITLE_LABEL=aw,
-DESCRIPTION_LABEL=ax,
-Description=ax.Text,
-Title=aw.Text,
-
-Parent=au,
-Kind="Slider"
-},ao)
-end
-
-function an:SetValue(au)
-assert(type(au)=="boolean",`"Toggle.SetValue". 'boolean' expected, got {typeof(au)}`)
-
-if self.Value~=au then
-self.Value=au
-self.WHEN_VALUE_CHANGED(au)
-end
-end
-
-function an.new(au,av,aw,ax,ay,az)
-return setmetatable({
-CALLBACKS=az,
-WHEN_VALUE_CHANGED=ay,
-
-DESTROY_ELEMENT=av,
-VISIBLE_ELEMENT=av,
-
-TITLE_LABEL=aw,
-DESCRIPTION_LABEL=ax,
-Description=ax.Text,
-Title=aw.Text,
-
-Parent=au,
-Kind="Toggle"
-},an)
-end
-
-function am:SetText(au)
-assert(type(au)=="string",`"TextBox.SetText". 'string' expected, got {typeof(au)}`)
-
-self.TEXTBOX.Text=au
-return self
-end
-
-function am:SetPlaceholder(au)
-assert(type(au)=="string",`"TextBox.SetPlaceholder". 'string' expected, got {typeof(au)}`)
-
-self.TEXTBOX.PlaceholderText=au
-return self
-end
-
-function am:CaptureFocus()
-self.TEXTBOX:CaptureFocus()
-return self
-end
-
-function am:Clear()
-self.TEXTBOX.Text=""
-return self
-end
-
-function am:SetTextFilter(au)
-if au~=nil then
-assert(type(au)=="function",`"TextBox.SetTextFilter[param 1]". 'function', or 'nil' expected, got {typeof(au)}`)
-end
-
-self.TEXTBOX_TEXT_FILTER=au
-return self
-end
-
-function am.new(au,av,aw,ax,ay,az)
-return setmetatable({
-Title=av.Text,
-Description=aw.Text,
-DESCRIPTION_LABEL=aw,
-TITLE_LABEL=av,
-
-CALLBACKS=az,
-DESTROY_ELEMENT=ax,
-VISIBLE_ELEMENT=ax,
-
-TEXTBOX=ay,
-BUTTON=ax,
-
-Parent=au,
-Kind="TextBox"
-},am)
-end
-
-am.Set=am.SetText
-an.Set=an.SetValue
-ao.Set=ao.SetValue
-end local al=function(
-
-al, am, an)
-local ao=E("TextButton","Button",an,{
-Size=UDim2.new(1,0,0,24),
-AutoButtonColor=false,
-Text="",
-Elements={
-Corner=UDim.new(0,6)
-},
-ThemeTag={
-BackgroundColor3="Colors.Buttons.Default"
-},
-Childs={
-E("TextLabel","Title",{
-BackgroundTransparency=1,
-Font=Enum.Font.GothamMedium,
-Text=am.Title,
-TextSize=10,
-TextXAlignment=Enum.TextXAlignment.Left,
-TextTransparency=(FirstTab and 0.3)or 0,
-TextTruncate=Enum.TextTruncate.AtEnd,
-ThemeTag={
-TextColor3="Colors.Text.Default"
-}
-})
-}
-})
-
-local ap=E("Frame",ao,{
-Position=UDim2.new(0,1,0.5,0),
-AnchorPoint=Vector2.new(0,0.5),
-Size=UDim2.fromOffset(4,4),
-BackgroundTransparency=1,
-ThemeTag={
-BackgroundColor3="Colors.Primary"
-},
-Elements={
-Corner=UDim.new(0.5,0)
-}
-})
-
-local aq=E("ScrollingFrame","Container",{
-Size=UDim2.new(1,0,1,0),
-Position=UDim2.new(0,0,1),
-AnchorPoint=Vector2.new(0,1),
-ScrollBarThickness=1.5,
-BackgroundTransparency=1,
-ScrollBarImageTransparency=0.2,
-AutomaticCanvasSize=Enum.AutomaticSize.Y,
-ScrollingDirection=Enum.ScrollingDirection.Y,
-BorderSizePixel=0,
-CanvasSize=UDim2.new(),
-ThemeTag={
-ScrollBarImageColor3="Colors.ScrollBar"
-},
-Elements={
-Padding={
-PaddingLeft=UDim.new(0,10),
-PaddingRight=UDim.new(0,10),
-PaddingTop=UDim.new(0,10),
-PaddingBottom=UDim.new(0,10)
-},
-ListLayout={
-Padding=UDim.new(0,5)
-}
-}
-})
-
-local ar=E("ImageLabel",ao,{
-Position=UDim2.new(0,8,0.5),
-Size=UDim2.new(0,13,0,13),
-AnchorPoint=Vector2.new(0,0.5),
-BackgroundTransparency=1,
-ImageTransparency=0.3,
-Image=am.Icon or""
-})local as=function()
-
-
-local as=string.sub(ar.Image,1,13)=="rbxassetid://"
-local at=ao.Title
-ar.Visible=as
-at.Size=UDim2.new(1,as and-25 or-15,1)
-at.Position=UDim2.fromOffset(as and 25 or 15)end
-
-
-u(ar:GetPropertyChangedSignal"Image",as)
-as()
-
-return ao,aq,ap,ar end local am=function(
-
-
-am, an, ao, ap)
-local aq=E("TextLabel",{
-TextXAlignment=Enum.TextXAlignment.Left,
-TextTruncate=Enum.TextTruncate.AtEnd,
-AutomaticSize=Enum.AutomaticSize.Y,
-Size=UDim2.new(1,-20),
-Position=UDim2.fromScale(0,0.5),
-AnchorPoint=Vector2.new(0,0.5),
-BackgroundTransparency=1,
-TextSize=11,
-ThemeTag={
-OBJECTS=C,
-TextColor3="Colors.Text.Default",
-Font="Font.Medium"
-}
-})
-
-local ar=V[am]
-local as=T[am].Container
-
-local at=E("TextLabel",{
-TextXAlignment=Enum.TextXAlignment.Left,
-AutomaticSize=Enum.AutomaticSize.Y,
-Size=UDim2.new(1,-20),
-Position=UDim2.new(0,12,0,15),
-BackgroundTransparency=1,
-TextWrapped=true,
-TextSize=8,
-RichText=true,
-ThemeTag={
-OBJECTS=ar,
-TextColor3="Colors.Text.Dark",
-Font="Font.Normal"
-}
-})
-
-local au={
-OBJECTS=ar,
-BackgroundColor3="Colors.Buttons.Default"
-}
-
-local av=E("TextButton","Option",{
-AutomaticSize=Enum.AutomaticSize.Y,
-Size=UDim2.new(1,0,0,25),
-AutoButtonColor=false,
-Text="",
-ThemeTag=au,
-Elements={
-Corner=UDim.new(0,6)
-},
-Childs={
-E("Frame","Holder",{
-AutomaticSize=Enum.AutomaticSize.Y,
-BackgroundTransparency=1,
-Size=ap,
-Elements={
-ListLayout={
-SortOrder=Enum.SortOrder.LayoutOrder,
-VerticalAlignment=Enum.VerticalAlignment.Center,
-Padding=UDim.new(0,2)
-},
-Padding={
-PaddingBottom=UDim.new(0,5),
-PaddingTop=UDim.new(0,5)
-}
-},
-Childs={aq,at}
-})
-}
-})
-
-local aw=av.Holder local ax=function(
-
-ax, ay)
-if ay then
-if _ then
-local az=w(s.CurrentTheme,"Colors.Buttons.Default")
-_.Theme.BackgroundColor3="Colors.Buttons.Default"
-J(_.Button,"BackgroundColor3",az,0.2):Play()
-end
-
-_={
-Button=av,
-Theme=au
-}
-end
-
-au.BackgroundColor3=ax
-J(av,"BackgroundColor3",w(s.CurrentTheme,ax),0.2):Play()end
-
-
-u(av.MouseLeave,function()ax("Colors.Buttons.Default",false)end)
-u(av.MouseEnter,function()ax("Colors.Buttons.Holding",true)end)
-
-u(at:GetPropertyChangedSignal"Text",function()
-local ay=#at.Text>0
-
-if at.Visible~=ay then
-local az=ay and 0 or 0.5
-at.Visible=ay
-aw.Position=UDim2.fromScale(0,az)
-aw.AnchorPoint=Vector2.new(0,az)
-end
-end)
-
-aq.Text=an
-at.Text=ao or""
-
-av.Parent=as
-
-return av,aq,at end local an=function(
-
-
-an, ao)
-if type(ao)~="table"then
-error(`"Tab.Add{an}[Configs]". 'table' expected, got {typeof(ao)}`,2)
-end
-
-local ap=ao[1]or ao.Name or ao.Title
-local aq=ao.Desc or ao.Description
-
-assert(type(ap)=="string",`"Tab.Add{an}.Title". 'string' expected, got {typeof(ap)}`)
-
-if aq~=nil and type(aq)~="string"then
-error(`"Tab.Add{an}.Description". 'string', or 'nil' expected, got {typeof(aq)}`,2)
-end
-
-return ap,aq or""end local ao=function(
-
-
-ao, ap)
-if ap~=nil and type(ap)~="string"then
-error(`"Tab.Add{ao}.Flag". 'nil', or 'string' expected, got {typeof(ap)}`)
-end
-
-return ap end local ap=function()
-
-
-
-local ap=160
 
 local aq={
-Corner=UDim.new(0,6),
-Stroke={
-ThemeTag={
-Color="Colors.Stroke"
-}
-},
-Gradient={
-Rotation=45,
-ThemeTag={
-Color="Colors.Background"
-}
-}
+Closest=nil,
+Equipped=nil,
+
+RealFruitsName=setmetatable({},ah()),
+RealFruitsId=setmetatable({},ah()),
+
+Enemies={},
+Progress={},
+Tools={}
 }
 
-local ar=E("TextButton",OutBox,{
-Size=UDim2.fromScale(1,1),
-BackgroundTransparency=1,
-Active=true,
-Text=""
-})
-
-local as=E("Frame","Dropdown",ar,{
-Size=UDim2.fromOffset(ap,100),
-Position=UDim2.fromOffset(50,50),
-Elements=aq,
-Active=true,
-ThemeTag={
-BackgroundTransparency="BackgroundTransparency"
+local ar={
+Sea=table.find({2753915549,4442272183,7449423635},game.PlaceId)or 0,
+SeasName={"Main","Dressrosa","Zou"},
+MaxMastery=600,
+MaxLevel=2800
 }
-})
 
-local at=E("TextButton","Search",as,{
-Position=UDim2.new(1,5,0,5),
-Size=UDim2.new(0,25,0,25),
-AutomaticSize=Enum.AutomaticSize.X,
-Active=true,
-Elements=aq,
-Text="",
-ThemeTag={
-BackgroundTransparency="BackgroundTransparency"
-},
-Childs={
-E("UIPadding",{
-PaddingLeft=UDim.new(0,5),
-PaddingRight=UDim.new(0,5),
-PaddingBottom=UDim.new(0,5),
-PaddingTop=UDim.new(0,5)
-}),
-E("UIListLayout",{
-Padding=UDim.new(0,5),
-FillDirection=Enum.FillDirection.Horizontal
-}),
-E("TextBox","SearchBox",{
-Size=UDim2.fromScale(0,1),
-Position=UDim2.fromScale(0.5,0.5),
-AnchorPoint=Vector2.new(0.5,0.5),
-Visible=false,
-PlaceholderText="Search...",
-ClearTextOnFocus=false,
-Text="",
-Elements={
-Corner=UDim.new(0,6)
-},
-ThemeTag={
-BackgroundColor3="Colors.Stroke",
-TextColor3="Colors.Text.Default",
-Font="Font.ExtraBold"
-}
-}),
-E("ImageLabel","SearchIcon",{
-Size=UDim2.fromScale(1,1),
-SizeConstraint=Enum.SizeConstraint.RelativeYY,
-Position=UDim2.fromScale(0.5,0.5),
-AnchorPoint=Vector2.new(0.5,0.5),
-BackgroundTransparency=1,
-ThemeTag={
-BackgroundColor3="Colors.Stroke",
-ImageColor3="Colors.Icons",
-Image="Icons.Search"
-}
-})
-}
-})
+do
+local as=workspace:GetAttribute"LEVEL_CAP"
 
-local au=E("ScrollingFrame",as,{
-Size=UDim2.new(1,-6,1,-6),
-Position=UDim2.fromScale(0.5,0.5),
-AnchorPoint=Vector2.new(0.5,0.5),
-ScrollBarThickness=3,
-BackgroundTransparency=1,
-BorderSizePixel=0,
-CanvasSize=UDim2.new(),
-ScrollingDirection=Enum.ScrollingDirection.Y,
-AutomaticCanvasSize=Enum.AutomaticSize.Y,
-Active=true,
-ThemeTag={
-OBJECTS=C,
-ScrollBarImageColor3="Colors.ScrollBar"
-},
-Elements={
-Padding={
-PaddingLeft=UDim.new(0,8),
-PaddingRight=UDim.new(0,8),
-PaddingTop=UDim.new(0,5),
-PaddingBottom=UDim.new(0,5)
-},
-ListLayout={
-Padding=UDim.new(0,4)
-}
-}
-})
-
-local av=at.SearchIcon
-local aw=at.SearchBox
-
-local ax=130
-
-local ay=J(as,"Size",UDim2.fromOffset(ap,0),0.2)
-local az=J(aw,"Size",UDim2.new(0,ax-30,1,0),0.3)
-local aA=J(aw,"Size",UDim2.new(0,0,1,0),0.2)
-
-local aB={}
-local aC=false
-local aD=false
-local aE
-local aF
-local aG
-local aH
-local aI
-
-local aJ=0
-
-local aK=25
-local aL=(aK*12)+10
-local aM=5 local aN=function(
-
-aN)
-local aO=I.AbsoluteSize.Y/ad.Scale
-return math.min((aK*math.max(aN,0.5))+10,aL,aO/1.75)end local aO=function()
-
-
-
-local aO=as.AbsolutePosition
-local aP=as.AbsoluteSize
-
-local aQ=Vector2.new(p.X,p.Y)
-
-local aR=aQ.X>=aO.X and aQ.X<=(aO.X+aP.X)
-local aS=aQ.Y>=aO.Y and aQ.Y<=(aO.Y+aP.Y)
-
-return aR and aS end local aP=function(
-
-
-aP, aQ)
-local aR=aI.AbsolutePosition
-local aS=aI.AbsoluteSize
-local aT=I.AbsoluteSize
-local aU=ad.Scale
-local aV=aN(aP)
-
-local aW=aT.X/aU
-local aX=aT.Y/aU
-local aY=aR.X/aU
-local aZ=aR.Y/aU
-local a_=aS.X/aU
-local a0=aS.Y/aU
-
-local a1=aZ+(a0/2)
-local a2=a1-(aV/2)
-
-local a3=aM
-local a4=aX-aV-aM
-
-local a5=math.clamp(a2,a3,a4)
-
-local a6=Vector2.new(0,0)
-
-if a5>(aX*0.7)then
-a6=Vector2.new(0,1)
-a5=math.min(a1+(aV/2),aX-aM)
+if type(as)=="number"and(as>ar.MaxLevel and as<1e4)then
+ar.MaxLevel=as
+end
 end
 
-local a7=math.clamp(
-aY,
-aM,
-aW-as.Size.X.Offset-(aM*2)-(at.AbsoluteSize.X/aU)
-)
-
-return Vector2.new(a7,a5),a6 end local aQ=function(...)
-
-
-
-local aQ,aR=aP(...)
-
-as.AnchorPoint=aR
-as.Position=UDim2.fromOffset(aQ.X,aQ.Y)end local aR=function()
-
-
-
-if not aD then return end
-
-aD=false
-
-aw.Text=""
-aA:Play()
-aA.Completed:Wait()
-aw.Visible=false end local aS=function()
-
-
-
-if aD then return end
-
-aD=true
-
-aw.Visible=true
-az:Play()
-
-aw:CaptureFocus()
-
-local aS=as.AbsoluteSize
-local aT=I.AbsoluteSize
-local aU=ad.Scale
-local aV=as.AnchorPoint
-
-local aW=ax*aU
-
-local aX=as.AbsolutePosition.X
-
-local aY=aX+aS.X+5+aW
-
-if aY>aT.X-(aM*aU)then
-local aZ=(aT.X-aS.X-aW-5-(aM*aU))/aU
-
-aZ=math.max(aZ,aM)
-
-J(as,"Position",UDim2.fromOffset(aZ,as.Position.Y.Offset),0.3):Play()
-end end local aT=function(
-
-
-aT)
-if not aC then
-aE=aT
-ar.Parent=Y
-return true
-end end local aU=function()
-
-
-
-if aC then return end
-
-if aE then
-aE()
-aE=nil
+if ar.Sea==0 then
+ar.Sea=table.find({85211729168715,79091703265657,100117331123089},game.PlaceId)or 0
 end
 
-task.spawn(aR)
-aC=true
-ay:Play()
-ay.Completed:Wait()
-ar.Parent=nil
-aC=false end local aV=function()
+ar.StringVersion=d.GetGameVersion(Y)
+ar.NumberVersion=am(ar.StringVersion)
 
+do
+if string.sub(ar.StringVersion,1,1)~="v"then return C:Kick()end
 
+local as=string.split(string.sub(ar.StringVersion,2,-1),".")
+local at=`{as[1]or 0}.`;
 
-if aw:IsFocused()then
-aJ=tick()
-return nil
+for au=2,#as do
+at..=tostring(as[au]or 0)
 end
 
-if(tick()-aJ)>=0.3 and not aO()then
-aU()
-end end local aW=function()
+ar.NumberVersion=tonumber(at)or 0
+end
 
+local as={
+CreateDictionary=aa,
+NewConnection=an,
+HookManager=ac,
+GameData=ar,
+IsAlive=X,
+}
 
-
-for aW,aX in aB do
-aW.Parent=nil
-aB[aW]=nil
-end end local aX=function(
-
-
-aX, aY)
-aX.Selected=aY
-
-if aX.Instance then
-local aZ=aX.Instance
-local a_=aZ.TextLabel
-local a0=aZ.Frame
-
-local a1=aY and 0 or(aH and 0.8 or 1)
-local a2=aY and 0 or 0.4
-local a3=UDim2.fromOffset(4,aY and 14 or 4)
-
-if aZ.Parent then
-J(a0,"BackgroundTransparency",a1,0.35):Play()
-J(a_,"TextTransparency",a2,0.35):Play()
-J(a0,"Size",a3,0.35):Play()
+function as.RejoinServer()
+if T or#m:GetPlayers()==1 then
+j:Teleport(game.PlaceId,C)
 else
-a_.TextTransparency=a2
-a0.BackgroundTransparency=a1
-a0.Size=a3
+j:TeleportToPlaceInstance(game.PlaceId,game.JobId,C)
 end
-end end local aY=function(
-
-
-aY)
-if aw.Visible==false or not aY then
-local aZ=aG and#aG or 0
-as.Size=UDim2.fromOffset(ap,aN(aZ))
-return nil
-end
-
-if aY then
-local aZ=aY.Instance
-local a_=M(aw.Text)
-aZ.Visible=#a_==0 or aY.SearchText:find(a_)~=nil
-
-if aZ.Visible~=false then
-SEARCH_RESULT_COUNT+=1
-as.Size=UDim2.fromOffset(ap,aN(SEARCH_RESULT_COUNT))
-end
-end end local aZ=function(
-
-
-aZ, a_, a0, a1)
-local a2=true
-
-if a_=="+"or a_=="-"then
-a2=aZ.Selected==(a_=="+")
-a0=a0:sub(2,-1)
-end
-
-return a2 and a1:find(a0,1,true)~=nil end local a_=function(
-
-
-a_, a0)
-local a1=E("TextButton",{
-Size=UDim2.new(1,0,0,21),
-AutoButtonColor=false,
-Text="",
-Elements={
-Corner=UDim.new(0,4)
-},
-ThemeTag={
-BackgroundColor3="Colors.Buttons.Default"
-},
-Childs={
-E("Frame",{
-Position=UDim2.new(0,1,0.5),
-Size=UDim2.new(0,4,0,4),
-BackgroundTransparency=1,
-AnchorPoint=Vector2.new(0,0.5),
-Elements={
-Corner=UDim.new(0.5,0)
-},
-ThemeTag={
-BackgroundColor3="Colors.Primary"
-}
-}),
-E("TextLabel",{
-Size=UDim2.fromScale(1,1),
-Position=UDim2.fromOffset(10,0),
-TextXAlignment=Enum.TextXAlignment.Left,
-BackgroundTransparency=1,
-TextTransparency=0.4,
-Text=a_.DisplayName,
-TextSize=9,
-ThemeTag={
-Font="Font.Bold",
-TextColor3="Colors.Text.Default"
-}
-})
-}
-})
-
-local a2=0
-
-u(a1.Activated,function()
-if(tick()-a2)<0 then return end
-
-if ar.Parent and not aC then
-a2=tick()+0.2
-aF(a_)
-end
-end)
-
-a_.SearchText=M(a_.DisplayName)
-a_.Instance=a1
-
-if a0 then
-local a3=aw.Text
-
-if#a3>0 then
-local a4=string.sub(a3,1,1)
-local a5=M(aw.Text)
-a1.Visible=aZ(a_,a4,a5,a_.SearchText)
-end
-
-a1.Parent=au
-aY(a_)
-end
-
-aX(a_,a_.Selected)end local a0=function(
-
-
-a0)
-aW()
-aG=a0
-
-for a1=1,#a0 do
-local a2=a0[a1]
-local a3=a2.Instance
-
-if a3==nil then
-a_(a2)
-a3=a2.Instance
-end
-
-a3.Parent=au
-aB[a3]=true
-end
-
-aQ(#a0)
-J(as,"Size",UDim2.fromOffset(ap,aN(#a0)),0.3):Play()end local a1=function()
-
-
-
-local a1=aw.Text
-local a2=string.sub(a1,1,1)
-local a3=M(a1)
-local a4=#a3==0
-local a5=0
-
-for a6=1,#aG do
-local a7=aG[a6]
-local a8=a4 or aZ(a7,a2,a3,a7.SearchText)
-a7.Instance.Visible=a8
-
-if a8 then
-a5+=1
-end
-end
-
-SEARCH_RESULT_COUNT=a5
-as.Size=UDim2.fromOffset(ap,aN(a5))end
-
-
-u(ab:GetPropertyChangedSignal"Visible",aV)
-u(ab:GetPropertyChangedSignal"Size",aV)
-u(ar.MouseButton1Down,aV)
-u(ar.Activated,aV)
-
-u(at.Activated,aS)
-u(aw:GetPropertyChangedSignal"Text",a1)
-
-return table.freeze{
-CreateOptionTemplate=a_,
-SetOptionValue=aX,
-CloseDropdown=aU,
-OpenDropdown=aT,
-SetOptions=a0,
-Clear=aW,
-SetOnClicked=function(...)
-aF=...
-end,
-SetMultiSelect=function(...)
-aH=...
-end,
-SetHolder=function(...)
-aI=...
-end
-}end
-
-
-local aq
-
-local ar={"W","A","S","D","Tab","Slash","Backspace","Escape","Unknown"}
-local as={"MouseButton1","MouseButton2","MouseButton3"}
-
-local at=K({"number","string","nil","boolean","table"},true)local au=function(
-
-au)
-if aq==nil then
-aq=K(Enum.KeyCode:GetEnumItems())
-end
-
-return typeof(au)=="EnumItem"and aq[au]end
-
-
-function ah:GetNoSelfCall(av)
-assert(type(av)=="string",`"Tab.GetNoSelfCall". 'string' expected, got {typeof(av)}`)
-local aw=self[av]
-assert(type(aw)=="function",`"Tab.GetNoSelfCall". '{aw}' is not a 'function'-{av}`)
-
-return function(...)
-return aw(self,...)
-end
-end
-
-function ah:AddSection(av)
-assert(av==nil or type(av)=="string",`"Tab.AddSection[param 1]". 'string', or 'nil' expected, got {typeof(av)}`)
-av=av or""
-
-local aw=V[self]
-
-local ax=E("Frame","Option",T[self].Container,{
-Size=UDim2.new(1,0,0,20),
-BackgroundTransparency=1
-})
-
-local ay=E("TextLabel",ax,{
-TextXAlignment=Enum.TextXAlignment.Left,
-TextTruncate=Enum.TextTruncate.AtEnd,
-Size=UDim2.new(1,-25,1,0),
-Position=UDim2.new(0,5),
-BackgroundTransparency=1,
-TextSize=17,
-Text=av,
-ThemeTag={
-OBJECTS=aw,
-TextColor3="Colors.Text.Default",
-Font="Font.Bold"
-}
-})
-
-return setmetatable({
-Title=av,
-
-DESTROY_ELEMENT=ax,
-VISIBLE_ELEMENT=ax,
-TITLE_LABEL=ay,
-
-Kind="Section",
-Parent=self
-},ai)
-end
-
-function ah:AddToggle(av)
-local aw,ax=an("Toggle",av)
-local ay=ao("Toggle",av[4]or av.Flag)
-
-local az=av[2]or av.Default or false
-local aA=F(av[3]or av.Callback)
-
-if type(az)~="boolean"then
-error(`"Tab.AddToggle.Default". 'boolean' expected, got {typeof(az)}`,2)
-end
-
-if ay~=nil and type(ae[ay])=="number"then
-az=ae[ay]==0
-end
-
-local aB=V[self]
-local aC,aD,aE=am(self,aw,ax,UDim2.new(1,-38,0,0))
-
-local aF=E("Frame",aC,{
-Size=UDim2.new(0,35,0,18),
-Position=UDim2.new(1,-10,0.5),
-AnchorPoint=Vector2.new(1,0.5),
-Elements={
-Corner=UDim.new(0.5,0)
-},
-ThemeTag={
-OBJECTS=aB,
-BackgroundColor3="Colors.Stroke"
-}
-})
-
-local aG=E("Frame",aF,{
-BackgroundTransparency=1,
-Size=UDim2.new(0.8,0,0.8,0),
-Position=UDim2.new(0.5,0,0.5,0),
-AnchorPoint=Vector2.new(0.5,0.5)
-})
-
-local aH={
-OBJECTS=aB,
-BackgroundColor3="Colors.OnPrimary"
-}
-
-local aI=E("Frame",aG,{
-Size=UDim2.new(0,12,0,12),
-Position=UDim2.new(0,0,0.5),
-AnchorPoint=Vector2.new(0,0.5),
-Elements={
-Corner=UDim.new(0.5,0)
-},
-ThemeTag=aH
-})
-
-local aJ=tick()
-local aK=0.2
-local aL={}local aM=function(
-
-aM)
-aL={}
-for aN=1,#aM do
-aM[aN]:Play()
-aL[aN]=aM[aN]
-end end local aN=function()
-
-
-
-for aN=#aL,1,-1 do
-local aO=aL[aN]
-if aO.PlaybackState==Enum.PlaybackState.Playing then
-aO:Cancel()
-end
-aL[aN]=nil
-end end local aO=function(
-
-
-aO)
-if ay~=nil then ae[ay]=aO and 0 or 1 end
-G(aA,aO)
-
-local aP=UDim2.new(aO and 1 or 0,0,0.5,0)
-local aQ=Vector2.new(aO and 1 or 0,0.5)
-local aR=aO and"Colors.Primary"or"Colors.OnPrimary"
-local aS=w(s.CurrentTheme,aR)
-
-aH.BackgroundColor3=aR
-
-if self.Selected and(tick()-aJ)>=aK then
-aM{
-J(aI,"Position",aP,0.25),
-J(aI,"AnchorPoint",aQ,0.25),
-J(aI,"BackgroundColor3",aS,0.25)
-}
-else
-aN()
-aI.Position=aP
-aI.AnchorPoint=aQ
-aI.BackgroundColor3=aS
-end
-
-aJ=tick()end
-
-
-local aP=ak.Toggle.new(self,aC,aD,aE,aO,aA)
-aP:SetValue(az)
-
-local aQ=0
-
-u(aC.Activated,function()
-if(tick()-aQ)>=aK then
-aQ=tick()
-aP:SetValue(not aP.Value)
-end
-end)
-
-return aP
-end
-
-function ah:AddButton(av)
-local aw,ax=an("Button",av)
-local ay=F(av[2]or av.Callback)
-local az=av.Debounce or av.Cooldown
-
-local aA=V[self]
-local aB,aC,aD=am(self,aw,ax,UDim2.new(1,-20,0,0))
-
-local aE=E("ImageLabel",aB,{
-Size=UDim2.new(0,14,0,14),
-Position=UDim2.new(1,-10,0.5),
-AnchorPoint=Vector2.new(1,0.5),
-BackgroundTransparency=1,
-ThemeTag={
-OBJECTS=aA,
-Image="Icons.Button"
-}
-})
-
-local aF=0
-
-u(aB.Activated,function()
-if az~=nil and(tick()-aF)<0 then return end
-
-if az~=nil then
-aF=tick()+az
-end
-
-G(ay)
-end)
-
-return setmetatable({
-CALLBACKS=ay,
-DESTROY_ELEMENT=aB,
-VISIBLE_ELEMENT=aB,
-TITLE_LABEL=aC,
-DESCRIPTION_LABEL=aD,
-
-Title=aw,
-Description=ax,
-
-Parent=self,
-Kind="Button"
-},ai)
-end
-
-function ah:AddTextBox(av)
-local aw,ax=an("TextBox",av)
-local ay=ao("TextBox",av[4]or av.Flag)
-
-local az=av[2]or av.Default
-local aA=F(av[3]or av.Callback)
-
-local aB=av.Placeholder or av.PlaceholderText
-local aC=av.ClearOnFocus or av.ClearTextOnFocus
-
-if az~=nil and type(az)~="string"then
-error(`"Tab.AddTextBox.Default". 'string', or 'nil' expected, got {typeof(az)}`,2)
-end
-
-if ay and type(ae[ay])=="string"then
-az=ae[ay]
-end
-
-local aD=V[self]
-local aE,aF,aG=am(self,aw,ax,UDim2.new(1,-150,0,0))
-
-local aH=E("Frame",aE,{
-Size=UDim2.new(0,150,0,18),
-Position=UDim2.new(1,-10,0.5),
-AnchorPoint=Vector2.new(1,0.5),
-ThemeTag={
-OBJECTS=aD,
-BackgroundColor3="Colors.Stroke"
-},
-Elements={
-Corner=UDim.new(0,4)
-}
-})
-
-local aI=E("TextBox",aH,{
-Size=UDim2.new(0.85,0,0.85,0),
-AnchorPoint=Vector2.new(0.5,0.5),
-Position=UDim2.new(0.5,0,0.5,0),
-BackgroundTransparency=1,
-TextScaled=true,
-Active=true,
-Text="",
-PlaceholderText=B.TEXTBOX.PLACEHOLDER_TEXT,
-ThemeTag={
-OBJECTS=aD,
-TextColor3="Colors.Text.Default",
-Font="Font.Bold"
-}
-})
-
-local aJ={
-OBJECTS=aD,
-Image="Icons.TextBox",
-ImageColor3="Colors.Icons"
-}
-
-local aK=E("ImageLabel",aH,{
-Size=UDim2.new(0,12,0,12),
-Position=UDim2.new(0,-5,0.5),
-AnchorPoint=Vector2.new(1,0.5),
-BackgroundTransparency=1,
-ThemeTag=aJ
-})
-
-if az~=nil then
-aI.Text=az
-end
-
-if aC~=nil then
-aI.ClearTextOnFocus=aC
-end
-
-if aB~=nil then
-aI.PlaceholderText=aB
-end
-
-local aL=ak.TextBox.new(self,aF,aG,aE,aI,aA)local aM=function(
-
-aM)
-aJ.ImageColor3=aM
-J(aK,"ImageColor3",w(s.CurrentTheme,aM),0.5):Play()end
-
-
-if ay~=nil then
-u(aI:GetPropertyChangedSignal"Text",function()
-ae[ay]=aI.Text
-end)
-end
-
-u(aI.Focused,function()
-aM"Colors.Primary"
-end)
-
-u(aI.FocusLost,function()
-aM"Colors.Icons"
-local aN=aL.TEXTBOX_TEXT_FILTER
-
-if aN then
-local aO=aN(aI.Text)
-if type(aO)=="string"then
-aI.Text=aO
-end
-end
-
-G(aA,aI.Text)
-end)
-
-u(aE.Activated,function()
-aI:CaptureFocus()
-end)
-
-return aL
-end
-
-function ah:AddSlider(av)
-local aw,ax=an("Slider",av)
-local ay=ao("Slider",av[7]or av.Flag)
-
-local az=av[2]or av.Min
-local aA=av[3]or av.Max
-local aB=av[4]or av.Increment
-local aC=av[5]or av.Default
-local aD=F(av[6]or av.Callback)
-
-if aB~=nil and type(aB)~="number"then
-error(`"Tab.AddSlider.Increment". 'number', or 'nil' expected, got {typeof(aB)}`,2)
-end
-
-if aC~=nil and type(aC)~="number"then
-error(`"Tab.AddSlider.Default". 'number', or 'nil' expected, got {typeof(aC)}`,2)
-end
-
-assert(type(az)=="number",`"Tab.AddSlider.Min", 'number' expected, got {typeof(az)}`)
-assert(type(aA)=="number",`"Tab.AddSlider.Max", 'number' expected, got {typeof(aA)}`)
-
-local aE=V[self]
-local aF=T[self].Container
-
-local aG,aH,aI=am(self,aw,ax,UDim2.new(0.55,0,0,0))
-
-if aC==nil then
-aC=az
-end
-
-if aB==nil then
-aB=1
-end
-
-if ay~=nil and type(ae[ay])=="number"then
-aC=ae[ay]
-end
-
-local aJ=E("TextButton",aG,{
-Size=UDim2.new(0.45,0,1,0),
-Position=UDim2.new(1,0,0,0),
-AnchorPoint=Vector2.new(1,0),
-AutoButtonColor=false,
-BackgroundTransparency=1,
-Text=""
-})
-
-local aK=E("Frame",aJ,{
-Size=UDim2.new(1,-20,0,6),
-Position=UDim2.fromScale(0.5,0.5),
-AnchorPoint=Vector2.new(0.5,0.5),
-ThemeTag={
-OBJECTS=aE,
-BackgroundColor3="Colors.Stroke"
-},
-Elements={
-Corner=UDim.new(0.5,0)
-}
-})
-
-local aL=E("Frame",aK,{
-Size=UDim2.fromScale(0,1),
-BorderSizePixel=0,
-ThemeTag={
-OBJECTS=aE,
-BackgroundColor3="Colors.Primary"
-},
-Elements={
-Corner=UDim.new(0.5,0)
-}
-})
-
-local aM=E("Frame",aK,{
-Size=UDim2.new(0,6,0,12),
-BackgroundColor3=Color3.fromRGB(220,220,220),
-Position=UDim2.fromScale(0,0.5),
-AnchorPoint=Vector2.new(0.5,0.5),
-BackgroundTransparency=0.2,
-Elements={
-Corner=UDim.new(0,6)
-}
-})
-
-local aN=E("TextLabel",aJ,{
-Size=UDim2.new(0,50,0,14),
-AnchorPoint=Vector2.new(1,0.5),
-Position=UDim2.new(0,-1,0.5,0),
-BackgroundTransparency=1,
-TextSize=12,
-TextXAlignment=Enum.TextXAlignment.Right,
-ThemeTag={
-OBJECTS=aE,
-TextColor3="Colors.Text.Default",
-Font="Font.SliderValue"
-}
-})
-
-local aO=E("UIScale",aN)
-
-local aP=ak.Slider.new(self,aG,aH,aI,aD)
-
-aP.Min=az
-aP.Max=aA
-aP.Increment=aB local aQ=function(
-
-aQ)
-return(aQ-az)/(aA-az)end local aR=function(
-
-
-aR)
-return(aR*(aA-az))+az end local aS=function(
-
-
-aS)
-return math.round(aS/aB)*aB end local aT=function(
-
-
-aT, aU)
-if aT==aP.Value then return end
-
-if ay~=nil then
-ae[ay]=aT
-end
-
-task.defer(G,aD,aT)
-aP.Value=aT
-
-local aV=UDim2.fromScale(aU,0.5)
-local aW=UDim2.fromScale(aU,1)
-
-aN.Text=tostring(math.floor(aT*1000)/1000)
-
-if self.Selected then
-J(aM,"Position",aV,0.3):Play()
-J(aL,"Size",aW,0.3):Play()
-else
-aM.Position=aV
-aL.Size=aW
-end end local aU=function(
-
-
-aU)
-local aV=math.clamp(aS(aU),az,aA)
-aT(aV,aQ(aV))end
-
-
-aP.WHEN_VALUE_CHANGED=aU local aV=function(
-
-aV, aW)
-local aX=(p.X-aV.X)/aW.X
-local aY=math.clamp(aX,0,1)
-local aZ=aR(aY)
-local a_=aS(aZ)
-local a0=math.clamp(a_,az,aA)
-aT(a0,aQ(a0))end
-
-
-local aW=Random.new()
-aU(aC)
-
-u(aJ.MouseButton1Down,function()
-if A~=false then return end
-
-J(aM,"BackgroundTransparency",0,0.3):Play()
-aF.ScrollingEnabled=false
-A=true
-
-local aX=aK.AbsolutePosition
-local aY=aK.AbsoluteSize
-
-while i:IsMouseButtonPressed(Enum.UserInputType.MouseButton1)do
-aV(aX,aY)
-task.wait()
-end
-
-A=false
-J(aM,"BackgroundTransparency",0.2,0.3):Play()
-aF.ScrollingEnabled=true
-end)
-
-u(aN:GetPropertyChangedSignal"Text",function()
-if not self.Selected then return end
-
-aO.Scale=0.3
-J(aO,"Scale",1.2,0.1):Play()
-
-local aX=J(aN,"Rotation",aW:NextNumber(-7.5,7.5),0.15)
-aX:Play()
-aX.Completed:Wait()
-
-J(aO,"Scale",1,0.2):Play()
-J(aN,"Rotation",0,0.1):Play()
-end)
-
-return aP
-end
-
-function ah:AddDiscordInvite(av)
-local aw,ax=an("DiscordInvite",av)
-local ay=av.Icon or av.Image or av.Logo
-local az=av.Banner or av.BannerColor
-local aA=av.Online or av.MembersOnline
-local aB=av.Members or av.TotalMembers
-local aC=av.Invite or av.Link
-
-assert(type(aC)=="string",`"Tab.AddDiscordInvite.Invite". 'string' expected, got {typeof(aC)}`)
-
-if az~=nil and typeof(az)~="Color3"and type(az)~="string"then
-error(`"Tab.AddDiscordInvite.Banner". 'nil', 'Color3', or 'string' expected, got {typeof(az)}`,2)
-end
-
-if aA~=nil and type(aA)~="number"then
-error(`"Tab.AddDiscordInvite.Online". 'number' expected, got {typeof(aA)}`,2)
-end
-
-if aB~=nil and type(aB)~="number"then
-error(`"Tab.AddDiscordInvite.Members". 'nil', or 'number' expected, got {typeof(aB)}`,2)
-end
-
-if I.ZIndexBehavior~=Enum.ZIndexBehavior.Sibling then
-I.ZIndexBehavior=Enum.ZIndexBehavior.Sibling
-end
-
-local aD=V[self]
-local aE=T[self].Container
-
-local aF=E("Frame","Option",aE,{
-BackgroundTransparency=1,
-Size=UDim2.new(1,0,0,148)
-})
-
-local aG=E("CanvasGroup",aF,{
-Size=UDim2.new(0,178,1,-15),
-Position=UDim2.new(0,5,1,0),
-AnchorPoint=Vector2.new(0,1),
-ClipsDescendants=true,
-Elements={
-Corner=UDim.new(0,9),
-Stroke={
-ThemeTag={
-Color="Colors.Border.Default"
-}
-}
-},
-ThemeTag={
-OBJECTS=aD,
-BackgroundColor3="Colors.Buttons.Default"
-}
-})
-
-local aH=E("ImageLabel",aG,{
-BackgroundColor3=Color3.new(1,1,1),
-Size=UDim2.fromScale(1,0.28),
-BackgroundTransparency=1
-})
-
-local aI=E("TextLabel",aF,{
-Position=UDim2.fromOffset(5,0),
-Size=UDim2.new(1,0,0,15),
-TextColor3=Color3.fromRGB(40,150,255),
-TextXAlignment=Enum.TextXAlignment.Left,
-BackgroundTransparency=1,
-TextSize=9,
-Text=aC,
-ThemeTag={
-OBJECTS=aD,
-TextColor3="Colors.Link",
-Font="Font.Medium"
-}
-})
-
-local aJ=E("ImageLabel",aG,{
-Size=UDim2.fromOffset(33,33),
-Position=UDim2.new(0,10,0.28,0),
-AnchorPoint=Vector2.new(0,0.5),
-Image=ay,
-ThemeTag={
-OBJECTS=aD,
-BackgroundColor3="Colors.Buttons.Default"
-},
-Elements={
-Corner=UDim.new(0,8),
-Stroke={
-Thickness=2.2,
-ApplyStrokeMode=Enum.ApplyStrokeMode.Border,
-ThemeTag={
-OBJECTS=aD,
-Color="Colors.Buttons.Default"
-}
-}
-}
-})
-
-local aK=E("TextLabel",aG,{
-Size=UDim2.new(1,-10,0,10),
-Position=UDim2.new(0,10,0.44,0),
-TextXAlignment=Enum.TextXAlignment.Left,
-BackgroundTransparency=1,
-TextSize=11,
-Text=aw,
-ThemeTag={
-OBJECTS=aD,
-TextColor3="Colors.Text.Default",
-Font="Font.Bold"
-}
-})
-
-local aL
-
-if aA or aB then
-aL=E("Frame",aG,{
-Size=UDim2.new(1,-10,0,9),
-Position=UDim2.new(0,0,0.52,0),
-BackgroundTransparency=1,
-Elements={
-Padding={
-PaddingLeft=UDim.new(0,7),
-PaddingRight=UDim.new(0,10)
-},
-ListLayout={
-HorizontalAlignment=Enum.HorizontalAlignment.Left,
-VerticalAlignment=Enum.VerticalAlignment.Center,
-FillDirection=Enum.FillDirection.Horizontal,
-Padding=UDim.new(0,4),
-}
-}
-})local aM=function(
-
-aM, aN)
-return E("Frame",aL,{
-Size=UDim2.fromScale(0,1),
-AutomaticSize=Enum.AutomaticSize.X,
-BackgroundTransparency=1,
-Childs={
-E("Frame",{
-Size=UDim2.fromOffset(3,3),
-Position=UDim2.new(0,5,0.5,0),
-AnchorPoint=Vector2.new(0,0.5),
-BackgroundColor3=aM,
-Elements={
-Corner=UDim.new(1,0)
-}
-}),
-E("TextLabel",{
-Size=UDim2.new(0,0,1,0),
-Position=UDim2.new(0,12,0.5,0),
-AnchorPoint=Vector2.new(0,0.5),
-AutomaticSize=Enum.AutomaticSize.X,
-BackgroundTransparency=1,
-TextSize=7,
-Text=aN,
-ThemeTag={
-OBJECTS=aD,
-TextColor3="Colors.Text.Darker",
-Font="Font.Normal"
-}
-})
-}
-})end
-
-
-if aA~=nil then
-aM(Color3.fromRGB(67,181,129),N(aA).." Online")
-end
-if aB~=nil then
-aM(Color3.fromRGB(86,101,105),N(aB).." Members")
-end
-end
-
-local aM=E("TextLabel",aG,{
-Size=UDim2.new(1,-50,0,8),
-Position=UDim2.new(0,10,aL and 0.6 or 0.56,0),
-TextXAlignment=Enum.TextXAlignment.Left,
-AutomaticSize=Enum.AutomaticSize.Y,
-BackgroundTransparency=1,
-TextSize=8,
-Text=ax or"",
-TextWrapped=true,
-ThemeTag={
-OBJECTS=aD,
-TextColor3="Colors.Text.Darker",
-Font="Font.Medium"
-}
-})
-
-local aN=E("Frame",aG,{
-Size=UDim2.new(1,0,0.28,0),
-Position=UDim2.fromScale(0,1),
-AnchorPoint=Vector2.new(0,1),
-BorderSizePixel=0,
-ThemeTag={
-OBJECTS=aD,
-BackgroundColor3="Colors.Buttons.Default"
-}
-})
-
-if#aM.Text>0 then
-aN.Size=UDim2.new(1,0,0.42,0)
-
-E("UIGradient",aN,{
-Rotation=-90,
-Transparency=NumberSequence.new{
-NumberSequenceKeypoint.new(0.00,0.00),
-NumberSequenceKeypoint.new(0.60,0.00),
-NumberSequenceKeypoint.new(1.00,1.00)
-}
-})
-end
-
-local aO=E("TextButton",aN,{
-Position=UDim2.new(0.5,0,1,-9),
-Size=UDim2.new(1,-18,0,18),
-AnchorPoint=Vector2.new(0.5,1),
-Text="Go to Server",
-Elements={
-Corner=UDim.new(0.5,0)
-},
-ThemeTag={
-OBJECTS=aD,
-BackgroundColor3="Colors.JoinButton",
-TextColor3="Colors.Text.Default",
-Font="Font.Bold"
-}
-})
-
-local aP=0
-
-u(aO.Activated,function()
-if(tick()-aP)<0 then return end
-
-aP=tick()+5
-local aQ=aO.Text
-aO.Text="Copied to Clipboard!"
-setclipboard(aC)
-task.wait(4)
-aO.Text=aQ
-end)
-
-if type(az)=="string"then
-aH.ScaleType=Enum.ScaleType.Crop
-aH.Image=az
-elseif typeof(az)=="Color3"then
-aH.BackgroundTransparency=0
-E("UIGradient",aH,{
-Rotation=-15,
-Color=ColorSequence.new{
-ColorSequenceKeypoint.new(0,az),
-ColorSequenceKeypoint.new(1,az:Lerp(Color3.new(1,1,1),0.2))
-}
-})
-end
-
-return setmetatable({
-DESTROY_ELEMENT=aF,
-VISIBLE_ELEMENT=aF,
-
-Title=aw,
-Description=ax,
-DESCRIPTION_LABEL=aM,
-TITLE_LABEL=aK,
-
-Kind="DiscordInvite",
-Parent=self
-},ai)
-end
-
-function ah:AddParagraph(av,aw)
-assert(type(av)=="string",`"Tab.AddParagraph[param 1]". 'string' expected, got {typeof(av)}`)
-
-if aw~=nil and type(aw)~="string"then
-error(`"Tab.AddParagraph[param 2]". 'string', or 'nil' expected, got {typeof(aw)}`,2)
-end
-
-local ax=V[self]
-local ay,az,aA=am(self,av,aw,UDim2.new(1,0,0,0))
-
-return setmetatable({
-DESTROY_ELEMENT=ay,
-VISIBLE_ELEMENT=ay,
-TITLE_LABEL=az,
-DESCRIPTION_LABEL=aA,
-
-Title=av,
-Description=aw,
-
-Parent=self,
-Kind="Paragraph"
-},ai)
-end
-
-function ah:AddDropdown(av)
-local aw,ax=an("Dropdown",av)
-local ay=ao("Dropdown",av[5]or av.Flag)
-
-local az=av[2]or av.Options
-local aA=av[3]or av.Default
-local aB=F(av[4]or av.Callback)
-local aC=av.MultiSelect
-
-if aA~=nil and type(aA)~="table"and type(aA)~="string"then
-error(`"Tab.AddDropdown.Default". 'string', 'table', or 'nil' expected, got {typeof(aA)}`,2)
-end
-
-if az~=nil and type(az)~="table"then
-error(`"Tab.AddDropdown.Options". 'table', or 'nil' expected, got {typeof(az)}`,2)
-end
-
-if aC~=nil and type(aC)~="boolean"then
-error(`"Tab.AddDropdown.MultiSelect". 'boolean', or 'nil' expected, got {typeof(aC)}`,2)
-end
-
-if ay and type(ae[ay])==(aC and"table"or"string")then
-aA=ae[ay]
-end
-
-local aD=V[self]
-local aE,aF,aG=am(self,aw,ax,UDim2.new(1,-150,0,0))
-
-local aH=E("Frame",aE,{
-Size=UDim2.new(0,150,0,18),
-Position=UDim2.new(1,-10,0.5),
-AnchorPoint=Vector2.new(1,0.5),
-Elements={
-Corner=UDim.new(0,4)
-},
-ThemeTag={
-OBJECTS=aD,
-BackgroundColor3="Colors.Stroke"
-}
-})
-
-local aI=E("TextLabel",aH,{
-Size=UDim2.new(0.85,0,0.85,0),
-AnchorPoint=Vector2.new(0.5,0.5),
-Position=UDim2.new(0.5,0,0.5,0),
-BackgroundTransparency=1,
-TextScaled=true,
-Text="...",
-ThemeTag={
-OBJECTS=aD,
-TextColor3="Colors.Text.Default",
-Font="Font.Bold"
-}
-})
-
-local aJ={
-OBJECTS=aD,
-Image="Icons.Dropdown.Open",
-ImageColor3="Colors.Icons"
-}
-
-local aK=E("ImageLabel",aH,{
-Size=UDim2.new(0,15,0,15),
-Position=UDim2.new(0,-5,0.5),
-AnchorPoint=Vector2.new(1,0.5),
-BackgroundTransparency=1,
-ThemeTag=aJ
-})
-
-local aL=ak.Dropdown.new(self,aE,aF,aG,aB)
-
-local aM
-local aN=false
-local aO=false
-
-local aP={}
-local aQ={}
-local aR={}
-local aS={}
-
-aL.DROPDOWN_OPTIONS=aR
-aL.Opened=aO local aT=function(
-
-aT, aU)
-aJ.ImageColor3=aT
-aJ.Image=aU
-
-J(aK,"ImageColor3",w(s.CurrentTheme,aT),0.35):Play()
-aK.Image=w(s.CurrentTheme,aU)end local aU=function(
-
-
-aU)
-aO=aU
-aL.Opened=aU
-
-local aV=aU and"Colors.Primary"or"Colors.Icons"
-local aW=aU and"Icons.Dropdown.Close"or"Icons.Dropdown.Open"
-aT(aV,aW)end local aV=function()
-
-
-
-aU(false)end local aW=function()
-
-
-
-local aW={}
-for aX,aY in aQ do
-if not aY then continue end
-aW[#aW+1]=aX
-end
-return aW end local aX=function(
-
-
-aX)
-local aY=type(aX)=="table"and table.concat(aX,", ")or(aX or"")
-
-if#aY>=100 then
-aY=aY:sub(1,97).."..."
-end
-
-aI.Text=#aY~=0 and aY or"..."end local aY=function()
-
-
-
-aN=false
-
-local aY=aC and aW()or aM and aM.Name
-G(aB,aC and aQ or aY)
-aX(aY)
-
-if ay~=nil then
-ae[ay]=aY
-end end local aZ=function()
-
-
-
-if not aN then
-aN=true
-task.delay(0.1,aY)
-end end local a_=function(
-
-
-a_)
-if aC then
-local a0=not a_.Selected
-X.SetOptionValue(a_,a0)
-aQ[a_.Name]=a0
-else
-if aM==a_ then
-return nil
-elseif aM~=nil then
-X.SetOptionValue(aM,false)
-end
-
-aM=a_
-X.SetOptionValue(a_,true)
-end
-
-aZ()end local a0=function(
-
-
-a0)
-a0=tostring(a0)
-if aS[a0]then return end
-
-local a1={
-Name=a0,
-DisplayName=a0,
-Selected=false
-}
-
-if aC and aQ[a0]==nil then
-aQ[a0]=false
-end
-
-aS[a0]=a1
-aR[#aR+1]=a1
-return a1 end local a1=function(
-
-
-a1)
-if aO==a1 then return end
-
-if not X then
-X=ap()
-end
-
-if a1 then
-if not X.OpenDropdown(aV)then return end
-
-X.SetHolder(aH)
-X.SetMultiSelect(aC)
-X.SetOnClicked(a_)
-X.SetOptions(aR)
-else
-X.CloseDropdown()
-end
-
-aU(a1)end local a2=function(
-
-
-a2, a3)
-if a3 and type(a2)=="boolean"then
-return a2==true and aR[a3]
 end
 
-return if type(a2)=="number"then aR[a2]else aS[tostring(a2)]end local a3=function(
+function as.ServerHop(at,au)
+as.RejoinBlocked=true
 
+at=math.min(at or 8,11)
+au=au or"Singapore"
 
-a3)
-a3.Selected=true
+local av=i.__ServerBrowser;
+local aw=av.InvokeServer;
+local ax=game.JobId;
+local ay=1;
+local az=task.delay local aA=function()
 
-if aC then
-aQ[a3.Name]=true
-else
-aM=a3
-end end local a4=function(...)
 
+local aA,aB=pcall(aw,av,ay)
+ay+=1
 
+if aA~=true then return end
+if type(aB)~="table"then return end
 
-local a4=a2(...)
+local aC,aD=at;
 
-if a4 then
-a3(a4)
-elseif aC and type(...)=="string"then
-aP[select(1,...)]=true
-end end local a5=function()
-
-
-
-if not aA then return end
-
-for a5=1,(aC and#aA or 1)do
-a4(aA[a5],a5)
-end end local a6=function(
-
-
-a6)
-local a7=table.find(aR,a6)
-
-if a7 then
-table.remove(aR,a7)
+for aE,aF in aB do
+if aE~=ax and aF.Count<=aC then
+aC,aD=aF.Count,aE;
 end
-
-if a6.Instance then
-a6.Instance:Destroy()
 end
-
-aS[a6.Name]=nil end local a7=function(
-
 
-a7)
-if aC then
-local a8=a7.Name
-return(aQ[a8]or aP[a8])==true
-else
-return aM and aM.Name==a7.Name
+if aD then
+j:TeleportToPlaceInstance(game.PlaceId,aD,C)
 end end
 
 
-aL.ADD_DROPDOWN_OPTION=function(a8)
-if type(a8)=="table"then
-for a9=1,#a8 do
-aL:Add(a8[a9])
-end
-
-return nil
-end
-
-local a9=a0(a8)
-
-if a9 then
-if aL.Opened then
-X.CreateOptionTemplate(a9,true)
-end
-
-if a7(a9)then
-a3(a9)
-
-if a9.Instance then
-X.SetOptionValue(a9,a9.Selected)
+for aB=1,100 do
+az(aB/50,aA)
 end
 end
 
-aZ()
-end
-end
-
-aL.REMOVE_DROPDOWN_OPTION=function(a8)
-local a9=aS[tostring(a8)]
-if a9 then
-a6(a9)
-end
+function as.GetRaidIsland()
+if V and V.Parent==y then
+return V
 end
 
-aL.CLEAR_DROPDOWN=function()
-for a8=#aR,1,-1 do
-local a9=aR[a8]
-if a9.Instance then
-a9.Instance:Destroy()
-end
+for at=5,1,-1 do
+local au=`Island {at}`
 
-aS[a9.Name]=nil
-aR[a8]=nil
+for av,aw in y:GetChildren()do
+if aw.Name==au and al(aw.Position)<3500 then
+V=aw
+return aw
 end
-
-if aL.Opened then
-X.Clear()
+end
 end
 end
 
 do
-if az then
-for a8=1,#az do
-a0(az[a8])
+local at={}local au=function(...)
+
+
+table.insert(at,{...})end
+
+
+au("Frags",{
+{"Race Reroll",{"BlackbeardReward","Reroll","2"}};
+{"Reset Stats",{"BlackbeardReward","Refund","2"}};
+});
+
+au("Fighting Style",{
+{"Buy Black Leg",{"BuyBlackLeg"}};
+{"Buy Electro",{"BuyElectro"}};
+{"Buy Fishman Karate",{"BuyFishmanKarate"}};
+{"Buy Dragon Claw",{"BlackbeardReward","DragonClaw","2"}};
+{"Buy Superhuman",{"BuySuperhuman"}};
+{"Buy Death Step",{"BuyDeathStep"}};
+{"Buy Sharkman Karate",{"BuySharkmanKarate"}};
+{"Buy Electric Claw",{"BuyElectricClaw"}};
+{"Buy Dragon Talon",{"BuyDragonTalon"}};
+{"Buy GodHuman",{"BuyGodhuman"}};
+{"Buy Sanguine Art",{"BuySanguineArt"}};
+});
+
+au("Ability Teacher",{
+{"Buy Geppo",{"BuyHaki","Geppo"}};
+{"Buy Buso",{"BuyHaki","Buso"}};
+{"Buy Soru",{"BuyHaki","Soru"}};
+{"Buy Ken",{"KenTalk","Buy"}};
+});
+
+au("Sword",{
+{"Buy Katana",{"BuyItem","Katana"}};
+{"Buy Cutlass",{"BuyItem","Cutlass"}};
+{"Buy Dual Katana",{"BuyItem","Dual Katana"}};
+{"Buy Iron Mace",{"BuyItem","Iron Mace"}};
+{"Buy Triple Katana",{"BuyItem","Triple Katana"}};
+{"Buy Pipe",{"BuyItem","Pipe"}};
+{"Buy Dual-Headed Blade",{"BuyItem","Dual-Headed Blade"}};
+{"Buy Soul Cane",{"BuyItem","Soul Cane"}};
+{"Buy Bisento",{"BuyItem","Bisento"}};
+});
+
+au("Gun",{
+{"Buy Musket",{"BuyItem","Musket"}};
+{"Buy Slingshot",{"BuyItem","Slingshot"}};
+{"Buy Flintlock",{"BuyItem","Flintlock"}};
+{"Buy Refined Slingshot",{"BuyItem","Refined Slingshot"}};
+{"Buy Dual Flintlock",{"BuyItem","Dual Flintlock"}};
+{"Buy Cannon",{"BuyItem","Cannon"}};
+{"Buy Kabucha",{"BlackbeardReward","Slingshot","2"}};
+});
+
+au("Accessories",{
+{"Buy Black Cape",{"BuyItem","Black Cape"}};
+{"Buy Swordsman Hat",{"BuyItem","Swordsman Hat"}};
+{"Buy Tomoe Ring",{"BuyItem","Tomoe Ring"}};
+});
+
+au("Race",{
+{"Ghoul Race",{"Ectoplasm","Change",4}};
+{"Cyborg Race",{"CyborgTrainer","Buy"}};
+});
+
+as.Shop=at;
+end
+
+function as:IsBlacklistedExecutor()
+return L
+end
+
+do
+local at="Fruit "
+local au=10
+local av="???-???"
+local aw="rbxassetid://0"
+
+local ax={}local ay=function(
+
+ay, az)
+ax[`rbxassetid://{ay}`]=az end
+
+
+do
+ay(15124425041,"Rocket")
+ay(15123685330,"Spin")
+ay(15123613404,"Blade")
+ay(15123689268,"Spring")
+ay(15123595806,"Bomb")
+ay(15123677932,"Smoke")
+ay(15124220207,"Spike")
+ay(121545956771325,"Flame")
+ay(15123673019,"Sand")
+ay(15123618591,"Dark")
+ay(77885466312115,"Eagle")
+ay(15112600534,"Diamond")
+ay(15123640714,"Light")
+ay(15123668008,"Rubber")
+ay(15123662036,"Ghost")
+ay(15123645682,"Magma")
+ay(15123606541,"Quake")
+ay(15123643097,"Love")
+ay(15123681598,"Spider")
+ay(116828771482820,"Creation")
+ay(15123679712,"Sound")
+ay(15123654553,"Phoenix")
+ay(15123656798,"Portal")
+ay(15123670514,"Rumble")
+ay(15123652069,"Pain")
+ay(15123587371,"Blizzard")
+ay(15123633312,"Gravity")
+ay(15123648309,"Mammoth")
+ay(15694681122,"T-Rex")
+ay(15123624401,"Dough")
+ay(15123675904,"Shadow")
+ay(10773719142,"Venom")
+ay(15123616275,"Control")
+ay(118054805452821,"Gas")
+ay(11911905519,"Spirit")
+ay(15123638064,"Leopard")
+ay(115276580506154,"Yeti")
+ay(15487764876,"Kitsune")
+ay(95749033139458,"Dragon East")
+end
+
+local az=setmetatable({},ah())
+local aA=setmetatable({},ah())
+
+local aB={
+Animation="Animation",
+Fruit="MeshPart",
+Idle="MeshPart"
+}local aC=function(
+
+aC)
+return if aC:IsA"MeshPart"then"MeshId"else"AnimationId"end local aD=function(
+
+
+aD, aE, aF)
+az[aD]=aE
+aA[aD]=aF end local aE=function(
+
+
+aE)
+local aF=aB[aE.Name]
+
+if aF and aE:IsA(aF)then
+local aG=aE[aC(aE)]
+return ax[aG],aG
+end end local aF=function(
+
+
+aF, aG)
+for aH,aI in aG:GetChildren()do
+local aJ,aK=aE(aI)
+if aJ then
+aD(aF,aJ,aK)
+return aJ,aK
 end
 end
 
-if type(aA)=="table"then
-a5()
-elseif type(aA)=="string"or type(aA)=="number"then
-local a8=a2(aA)
+local aH
+local aI
+local aJ=au
 
-if a8 then
-a3(a8)
+local aK=aG.ChildAdded:Connect(function(aK)
+if not aH then
+aH,aI=aE(aK)
 end
-end
-
-if aC then
-local a8=aW()
-task.defer(G,aB,aQ)
-aX(a8)
-else
-local a8=aM
-local a9=a8 and a8.Name or""
-task.defer(G,aB,a9)
-aX(a9)
-end
-end
-
-u(aE.Activated,function()
-a1(not aO)
 end)
 
-return aL
+while not aH and aJ>0 do
+aJ-=task.wait()
 end
 
-function ah:Destroy()
-assert(type(self)=="table"and self.IS_A_TAB,`"Tab.Destroy". {tostring(self)} is not a tab`)
-if self.IS_DESTROYED then return end
-local av=table.find(S,self)
-assert(av,`"Tab.Destroy". failed to destroy '{self.Title}'`)
+aK:Disconnect()
 
-table.remove(S,av)
+if aH then
+aD(aF,aH,aI)
+return aH
+end end
 
-for aw,ax in T[self]do
-ax:Destroy()
+
+function as.GetRealFruitName(aG,aH)
+if aG.Name~=at then
+return aG.Name
 end
 
-V[self]:destroy()
-
-T[self]=nil
-V[self]=nil
-
-setmetatable(self,nil)
+if az[aG]then
+return if aH then aA[aG]else az[aG]
 end
 
-function ah:SetVisible(av)
-assert(type(av)=="boolean",`"Tab.SetVisible[param 1]". 'boolean' extected, got {typeof(av)}`)
+az[aG]=av
+aA[aG]=aw
 
-for aw,ax in T[self]do
-ax.Visible=av
+local aI=aG:WaitForChild("Fruit",math.huge)
+aF(aG,aI)
+
+return(aH and aA[aG]or az[aG])or aw
 end
 end
 
-function ah:Select()
-if ac==self then
+as.CollectionService=(function()
+local at={}
+
+local au=ao"_ChestTagged"
+local av=ao"BerryBush"
+
+local aw,ax=0;
+local ay,az=0;
+
+at.Chests=au
+at.Berries=av local aA=function(
+
+aA)
+return aA and not aA:GetAttribute"IsDisabled"end local aB=function(
+
+
+aB)
+return aB and next(aB:GetAttributes())~=nil end local aC=function(
+
+
+aC)
+if aA(ax)and(not aC or ax:IsDescendantOf(aC))then
+return ax
+elseif(tick()-aw)<1 then
 return nil
 end
 
-if ac then
-U[ac].Unselect()
+local aD,aE=math.huge
+
+for aF=1,#au do
+local aG=au[aF]
+if aA(aG)and(not aC or ax:IsDescendantOf(aC))then
+local aH=C:DistanceFromCharacter(aG:GetPivot().Position)
+
+if aH<aD then
+aD,aE=aH,aG
 end
-
-ac=self
-U[ac].Select()
-end
-
-function ai:SetTitle(av)
-assert(type(av)=="string",`"Option.SetTitle". 'string' expected, got {typeof(av)}`)
-assert(self.TITLE_LABEL,`"Option.SetTitle". cannot change this option name {self.KIND}:{self.Title}`)
-
-self.TITLE_LABEL.Text=av
-self.Title=av
-return self
-end
-
-function ai:SetDescription(av)
-assert(av==nil or type(av)=="string",`"Option.SetDescription". 'string', or 'nil' expected, got {typeof(av)}`)
-assert(self.DESCRIPTION_LABEL,`"Option.SetDescription". cannot change this option description {self.KIND}:{self.Title}`)
-
-self.DESCRIPTION_LABEL.Text=av
-self.Description=av
-return self
-end
-
-function ai:SetVisible(av)
-assert(typeof(self.VISIBLE_ELEMENT)=="Instance",`"Option.SetVisible". cannot change this option visibility {self.KIND}:{self.Title}`)
-assert(type(av)=="boolean",`"Option.SetVisible". 'boolean' expected, got {typeof(av)}`)
-
-self.VISIBLE_ELEMENT.Visible=av
-end
-
-function ai:Destroy()
-assert(typeof(self.DESTROY_ELEMENT)=="Instance",`"Option.Destroy". cannot destroy this option {self.KIND}:{self.Title}`)
-
-self.DESTROY_ELEMENT:Destroy()
-setmetatable(self,nil)
-
-self.Destroyed=true
-end
-
-function ai:AddCallback(av)
-assert(self.CALLBACKS,"\"Option.AddCallback\". cannot add callback to this option.")
-assert(type(av)=="function",`"Option.AddCallback[param 1]". 'function' expected, got {typeof(av)}`)
-
-table.insert(self.CALLBACKS,av)
-return self
-end
-
-ai.NewCallback=ai.AddCallback
-ai.SetContent=ai.SetDescription
-ai.SetDesc=ai.SetDescription
-
-function aj:CreateMobileMinimizer(av)
-local aw=E("ImageButton",I,{
-Size=UDim2.fromOffset(35,35),
-Position=UDim2.fromScale(0.17,0.28),
-AnchorPoint=Vector2.new(0.5,0.5),
-AutoButtonColor=false,
-ThemeTag={
-BackgroundColor3="Colors.Buttons.Default"
-}
-})
-
-u(aw.Activated,function()
-ag:Minimize()
-end)
-
-av.Elements={}
-
-if av.Corner then
-av.Elements.Corner=av.Corner
-av.Corner=nil
-end
-
-if av.Stroke then
-av.Elements.Stroke=av.Stroke
-av.Stroke=nil
-end
-
-D.Draggable(aw,ad,0.5)
-D.SetProperties(aw,av)
-
-return aw
-end
-
-function aj:SetKeyCode(av)
-assert(au(av),`"Minimizer.SetKeyCode[param 1]". 'KeyCode' expected, got {typeof(av)}`)
-
-self.KeyCode=av
-end
-
-function ag:SelectTab(av)
-local aw=type(av)=="number"and S[av]
-
-if type(av)=="table"and av.IS_A_TAB then
-aw=av
-end
-
-if aw then
-aw:Select()
-elseif not aw then
-assert(type(av)=="number",`"Window.SelectTab" number or tab expected, got {typeof(av)}`)
-assert(av>0,`"Window.SelectTab" the number must be greater than 0, value: {av}`)
-assert(av==math.floor(av),`"Winow.SelectTab" floor number expected, got {av}`)
-
-self.SelectedTab=av
 end
 end
 
-function ag:Minimize()
-ab.Visible=not ab.Visible
+aw=tick()
+ax=aE
+
+return aE end local aD=function()
+
+
+
+if aB(az)and az:IsDescendantOf(w)then
+return az
+elseif(tick()-ay)<1 then
+return nil
 end
 
-function ag:MakeTab(av)
-local aw=av[1]or av.Name or av.Title
-local ax=av[2]or av.Icon or av.Image
+local aD,aE=math.huge
 
-assert(type(aw)=="string",`"Tab.Title" 'string' expected, got {typeof(aw)}`)
-assert(ax==nil or type(ax)=="string",`"Tab.Icon" 'string' expected, got {typeof(ax)}`)
+for aF=1,#av do
+local aG=av[aF]
 
-local ay=setmetatable({
-Selected=self.SelectedTab==#S+1,
-Icon=s:GetIconByName(ax),
-Title=aw,
+if aB(aG)and aG.Parent then
+local aH=al(aG.Parent:GetPivot().Position)
 
-Parent=self,
-IS_A_TAB=true
-},ah)
-
-local az=self:GetElements()
-local aA=az.TabsContainer
-local aB=az.ContainerHolder
-
-local aC,aD,aE=al(self,ay,aA)
-
-local aF=J(aD,"Size",UDim2.new(1,0,1,0),0.3)
-local aG=UDim2.new(1,0,1,150)
-
-local aH=0.45
-
-local aI={
-J(aE,"BackgroundTransparency",0,aH),
-J(aE,"Size",UDim2.fromOffset(4,13),aH)
-}
-
-local aJ={
-J(aE,"BackgroundTransparency",1,aH),
-J(aE,"Size",UDim2.fromOffset(4,4),aH)
-}
-
-local aK=C:new()
-V[ay]=aK local aL=function(
-
-aL)
-for aM=1,#aL do
-aL[aM]:Play()
-end end local aM=function()
-
-
-
-aL(aI)
-ay.Selected=true
-aK:changeRendering(true)
-aK:update()
-aD.Parent=aB
-aD.Size=aG
-aF:Play()end local aN=function()
-
-
-
-aL(aJ)
-ay.Selected=false
-aD.Parent=nil
-aK:changeRendering(false)end
-
-
-U[ay]=table.freeze{
-Unselect=aN,
-Select=aM
-}
-
-T[ay]=table.freeze{
-SelectTabButton=aC,
-Container=aD
-}
-
-table.insert(S,ay)
-
-u(aC.Activated,function()
-ay:Select()
-end)
-
-if ay.Selected then
-ay:Select()
+if aH<aD then
+aD,aE=aH,aG
 end
-
-return ay
-end
-
-function ag:StartWindow(av)
-local aw=av.MinimizeButton
-local ax=av.MainFrame
-local ay=av.Resizers
-local az=av.TopBar
-
-local aA=av.SubTitle
-local aB=av.Title
-
-Y=av.Dropdowns
-ab=av.MainFrame
-ad=av.UIScale
-ae=av.Flags
-
-local aC=ax.Size
-local aD=0
-
-function ag:MinimizeButton()
-if(tick()-aD)<0 then
-return false
-end
-
-if self.Minimized then
-aw.Image="rbxassetid://10734896206"
-J(ax,"Size",aC,0.25):Play()
-else
-aC=ax.Size
-aw.Image="rbxassetid://10734924532"
-J(ax,"Size",UDim2.fromOffset(ax.Size.X.Offset,az.Size.Y.Offset),0.25):Play()
-end
-
-for aE,aF in ay do
-aF.Visible=self.Minimized
-end
-
-self.Minimized=not self.Minimized
-aD=tick()+0.5
-
-return true
-end
-
-function ag:GetTitle()
-return aB.Text
-end
-
-function ag:GetSubTitle()
-return aA.Text
-end
-
-function ag:SetTitle(aE)
-assert(type(aE)=="string",`"Window.SetTitle". 'string' expected, got {typeof(aE)}`)
-assert(#aE>0,"\"Window.SetTitle\". the new 'Title' is too short.")
-
-aB.Text=aE
-end
-
-function ag:SetSubTitle(aE)
-assert(type(aE)=="string",`"Window.SetSubTitle". 'string' expected, got {typeof(aE)}`)
-assert(#aE>0,"\"Window.SetSubTitle\". the new 'SubTitle' is too short.")
-
-aA.Text=aE
-end
-
-W=E("Frame",I,{
-Size=UDim2.new(0,280,1,0),
-Position=UDim2.fromScale(1,0),
-AnchorPoint=Vector2.new(1,0),
-BackgroundTransparency=1,
-Elements={
-Padding={
-PaddingBottom=UDim.new(0,20)
-},
-ListLayout={
-HorizontalAlignment=Enum.HorizontalAlignment.Center,
-VerticalAlignment=Enum.VerticalAlignment.Bottom,
-SortOrder=Enum.SortOrder.LayoutOrder,
-Padding=UDim.new(0,20)
-}
-}
-})
-
-aa=E("TextButton","OutBox",{
-Size=UDim2.fromScale(1,1),
-BackgroundTransparency=0.3,
-AutoButtonColor=false,
-Text="",
-ThemeTag={
-BackgroundColor3="Colors.Buttons.Default"
-},
-Childs={
-ax:FindFirstChildOfClass"UICorner":Clone(),
-E("Frame","Template",{
-Size=UDim2.new(0.35,60,0.20,80),
-Position=UDim2.fromScale(0.5,0.5),
-AnchorPoint=Vector2.new(0.5,0.5),
-Active=true,
-Elements={
-Corner=UDim.new(0,6),
-Gradient={
-Rotation=45,
-ThemeTag={
-Color="Colors.Background"
-}
-}
-},
-Childs={
-E("TextLabel","Title",{
-Size=UDim2.new(1,-20,0,20),
-TextTruncate=Enum.TextTruncate.AtEnd,
-TextSize=15,
-Position=UDim2.new(0.5,0,0,28),
-AnchorPoint=Vector2.new(0.5,0),
-BackgroundTransparency=1,
-ThemeTag={
-Font="Font.ExtraBold",
-TextColor3="Colors.Text.Default"
-}
-}),
-E("TextLabel","Description",{
-Position=UDim2.new(0.5,0,0,46),
-Size=UDim2.new(1,-20,0,0),
-AnchorPoint=Vector2.new(0.5,0),
-TextWrapped=true,
-TextSize=11,
-AutomaticSize=Enum.AutomaticSize.Y,
-BackgroundTransparency=1,
-ThemeTag={
-TextColor3="Colors.Text.Darker",
-Font="Font.Medium"
-}
-}),
-E("Frame","Options",{
-Size=UDim2.new(1,-20,0.15,18),
-Position=UDim2.new(0.5,0,1,-10),
-AnchorPoint=Vector2.new(0.5,1),
-BackgroundTransparency=1,
-Elements={
-Padding={
-PaddingLeft=UDim.new(0,10),
-PaddingRight=UDim.new(0,10),
-PaddingBottom=UDim.new(0,30),
-PaddingTop=UDim.new(0,30)
-},
-ListLayout={
-HorizontalAlignment=Enum.HorizontalAlignment.Right,
-VerticalAlignment=Enum.VerticalAlignment.Center,
-FillDirection=Enum.FillDirection.Horizontal
-}
-}
-})
-}
-})
-}
-})
-
-aa.Template:SetAttribute("OriginalSize",aa.Template.Size)
-
-u(aa.Activated,function()
-if Z~=nil and not Z.Closing and not Z.Closed then
-Z:Close()
-end
-end)
-
-ag.StartWindow=nil
-end
-
-function ag:DeleteFlags()
-return ae()
-end
-
-function ag:SetFlag(av,aw)
-assert(type(av)=="string",`"Window.SetFlag[param 1]". 'string' expected, got {typeof(av)}`)
-
-if at[typeof(aw)]~=true then
-local ax={}
-
-for ay,az in at do
-table.insert(ax,ay)
-end
-
-return error(`"Window.SetFlag[param 2]". '{table.concat(ax,"', '")}' expected, got {typeof(aw)}`,2)
-end
-
-ae[av]=aw
-end
-
-function ag:GetFlag(av)
-return ae[av]
-end
-
-function ag:ReadFile(av)
-assert(type(av)=="string",`"Window.ReadFile[param 1]". 'string' expected, got {typeof(av)}`)
-av=`{self.ScriptFolder}/{av}`
-
-if f~=nil and(isfile==nil or not isfile(av))then
-return f(av)
 end
 end
 
-function ag:WriteFile(av,aw)
-assert(type(av)=="string",`"Window.WriteFile[param 1]". 'string' expected, got {typeof(av)}`)
-av=`{self.ScriptFolder}/{av}`
-
-if aw~=nil and type(aw)~="string"then
-error(`"Window.WriteFile[param 2]". 'string', or 'nil' expected, got {typeof(aw)}`,2)
-end
-
-if aw==nil then
-if c~=nil then
-c(`{self.ScriptFolder}/{av}`)
-return true
-end
-else
-if e~=nil then
-z(`{self.ScriptFolder}/{av}`)
-return true
-end
-end
-
-return false
-end
-
-function ag:NewMinimizer(av)
-local aw=type(av)=="table"and(av[1]or av.KeyCode)or av
-
-if not au(aw)then
-error(`"Window.NewMinimizer.KeyCode". 'KeyCode' expected, got {typeof(aw)}`,2)
-end
-
-local ax=setmetatable({
-KeyCode=aw
-},aj)
-
-u(i.InputBegan,function(ay)
-if ay.KeyCode==ax.KeyCode then
-ag:Minimize()
-end
-end)
-
-return ax
-end
-
-function ag:Dialog(av)
-if self.Minimized then
-while not self:MinimizeButton()do task.wait()end
-end
-
-if Z then
-Z:Close(true)
-end
-
-local aw=av.Title or av.Name
-local ax=av.Content or av.Description
-local ay=av.Options
-
-assert(type(aw)=="string",`"Window.Dialog.Title". 'string' expected, got {typeof(aw)}`)
-assert(type(ax)=="string",`"Window.Dialog.Content". 'string' expected, got {typeof(ax)}`)
-assert(type(ay)=="table",`"Window.Dialog.Options". 'table' expected, got {typeof(ay)}`)
-assert(#ay>0,"\"Window.Dialog.Options\". requires one or more options.")local az=function()
-
-
-local az=aa.Template
-local aA=az.Description
-local aB=az.Title
-
-local aC=az:GetAttribute"OriginalSize"
-local aD=UDim2.new(aC.X.Scale*1.2,aC.X.Offset,aC.Y.Scale*1.2,aC.Y.Offset)
-
-az.Size=aD
-aa.Parent=ab
-aA.Text=ax
-aB.Text=aw
-
-J(az,"Size",aC,0.3):Play()
-
-local aE=ak.Dialog.new(aA,aB)
-aE.NEW_SIZE=aD
-aE.TEMPLATE=az
-
-for aF,aG in az.Options:GetChildren()do
-if aG:IsA"GuiObject"then
-aG:Destroy()
-end
-end
-
-for aF=#ay,1,-1 do
-aE:NewOption(ay[aF])
-end
+ay=tick()
+az=aE
 
 return aE end
 
 
-Z=az()
-return Z
-end
-
-function ag:SetNotifyDefaultIcon(av)
-assert(type(av)=="string",`"Window.SetNotifyDefaultIcon[param 1]". 'string' expected, got {typeof(av)}`)
-
-af=av
-end
-
-function ag:Notify(av)
-if type(av)~="table"then
-av={}
-end
-
-local aw=av[1]or av.Name or av.Title
-local ax=av[2]or av.Content
-local ay=av[3]or av.Icon or av.Image
-local az=av[4]or av.Duration or av.Countdown or av.Time
-
-if self.NOTIFICATION_GROUP then
-if az==nil then az=self.Duration end
-if ax==nil then ax=self.Content end
-if aw==nil then aw=self.Title end
-if ay==nil then ay=self.Icon end
-end
-
-assert(type(aw)=="string",`"Window.Notify.Title". 'string' expected, got {typeof(aw)}`)
-assert(type(ax)=="string",`"Window.Notify.Content". 'string' expected, got {typeof(aw)}`)
-assert(ay==nil or type(ay)=="string",`"Window.Notify.Icon". 'nil' or 'string' expected, got {typeof(ay)}`)
-
-if az~=nil and type(az)~="number"then
-error(`"Window.Notify.Time". 'number', or 'nil' expected, got {typeof(az)}`,2)
-elseif az==nil then
-az=5
-end
-
-local aA=E("Frame","Notification",W,{
-Size=UDim2.new(0.85,0,0,60),
-BackgroundTransparency=1,
-AutomaticSize=Enum.AutomaticSize.Y
-})
-
-local aB=E("TextButton",aA,{
-AutomaticSize=Enum.AutomaticSize.Y,
-Size=UDim2.fromScale(1,1),
-AutoButtonColor=false,
-Text="",
-ThemeTag={
-BackgroundTransparency="BackgroundTransparency"
-},
-Elements={
-Corner=UDim.new(0,9),
-Gradient={
-Rotation=45,
-ThemeTag={
-Color="Colors.Background"
-}
-}
-}
-})
-
-local aC=E("UIScale",aA)
-
-local aD=E("Frame","Holder",aB,{
-AutomaticSize=Enum.AutomaticSize.Y,
-BackgroundTransparency=1,
-Size=UDim2.fromScale(1,1),
-Elements={
-ListLayout={
-SortOrder=Enum.SortOrder.LayoutOrder,
-VerticalAlignment=Enum.VerticalAlignment.Center,
-Padding=UDim.new(0,4)
-},
-Padding={
-PaddingBottom=UDim.new(0,8),
-PaddingTop=UDim.new(0,8),
-PaddingLeft=UDim.new(0,40)
-}
-}
-})
-
-local aE=E("TextLabel",aD,{
-Size=UDim2.new(1,0,0,20),
-TextTruncate=Enum.TextTruncate.AtEnd,
-TextXAlignment=Enum.TextXAlignment.Left,
-TextYAlignment=Enum.TextYAlignment.Bottom,
-BackgroundTransparency=1,
-TextSize=14,
-ThemeTag={
-TextColor3="Colors.Text.Default",
-Font="Font.Bold"
-}
-})
-
-local aF=E("TextLabel",aD,{
-Size=UDim2.new(1,0,0,20),
-TextXAlignment=Enum.TextXAlignment.Left,
-TextYAlignment=Enum.TextYAlignment.Top,
-AutomaticSize=Enum.AutomaticSize.Y,
-BackgroundTransparency=1,
-TextWrapped=true,
-TextSize=12,
-ThemeTag={
-TextColor3="Colors.Text.Dark",
-Font="Font.Normal"
-}
-})
-
-local aG=E("ImageLabel",aB,{
-Size=UDim2.fromOffset(24,24),
-Position=UDim2.new(0,8,0.5,0),
-AnchorPoint=Vector2.new(0,0.5),
-BackgroundTransparency=1,
-ThemeTag={
-ImageColor3="Colors.Icons"
-}
-})
-
-local aH=E("TextLabel",aB,{
-Size=UDim2.new(0,40,0,16),
-Position=UDim2.new(1,-10,0,8),
-AnchorPoint=Vector2.new(1,0),
-BackgroundTransparency=1,
-TextSize=10,
-ThemeTag={
-TextColor3="Colors.Text.Darker",
-Font="Font.Normal"
-}
-})
-
-local aI=false
-
-local aJ=J(aC,"Scale",1.22,0.35)
-local aK=J(aC,"Scale",1.00,0.35)
-
-local aL=setmetatable({
-TITLE_LABEL=aE,
-DESCRIPTION_LABEL=aF,
-VISIBLE_ELEMENT=aA,
-DESTROY_ELEMENT=aA,
-NOTIFICATION=aB,
-
-Kind="Notification",
-Closed=false,
-Parent=self
-},ai)
-
-function aL:Close()
-if self.Closed==true then return end
-
-self:Destroy()
-self.Closed=true
-
-local aM=J(aB,"Position",UDim2.fromScale(3,0),0.8)
-aM:Play()
-aM.Completed:Wait()
-aA:Destroy()
-end local aM=function()
-
-
-ay=s:GetIconByName(ay or af)
-aG.Image=ay
-
-if not O(ay)then
-aG.Visible=false
-aD.UIPadding.PaddingLeft=UDim.new(0,15)
-end
-
-aB.Position=UDim2.fromScale(3,0)
-J(aB,"Position",UDim2.fromScale(0,0),0.35):Play()
-
-aE.Text=aw
-aF.Text=ax
-
-local aM=aB.MouseLeave
-
-while az>0 do
-aH.Text=Q(az)
-if aI==true then aM:Wait()end
-az-=task.wait()
-end
-
-aL:Close()end
-
-
-u(aB.MouseButton1Down,function()aJ:Play()aI=true end)
-u(aB.MouseLeave,function()aK:Play()aI=false end)
-
-task.defer(aM)
-
-return aL
-end
-
-function ag:NewNotifyGroup(av)
-local aw=av[1]or av.Name or av.Title
-local ax=av[2]or av.Content
-local ay=av[3]or av.Icon or av.Image
-local az=av[4]or av.Duration or av.Countdown or av.Time
-
-if aw~=nil and type(aw)~="string"then
-error(`"Window.NewNotifyGroup.Title". 'string', or 'nil' expected, got {typeof(aw)}`,2)
-end
-
-if ax~=nil and type(ax)~="string"then
-error(`"Window.NewNotifyGroup.Content". 'string', or 'nil' expected, got {typeof(ax)}`,2)
-end
-
-if ay~=nil and type(ay)~="string"then
-error(`"Window.NewNotifyGroup.Icon". 'string', or 'nil' expected, got {typeof(ay)}`,2)
-end
-
-if az~=nil and type(az)~="number"then
-error(`"Window.NewNotifyGroup.Time". 'number', or 'nil' expected, got {typeof(az)}`,2)
-end
-
-return{
-NOTIFICATION_GROUP=true,
-Notify=ag.Notify,
-
-Duration=az,
-Content=ax,
-Title=aw,
-Icon=ay,
-}
-end
-
-function ag:GetTabByTitle(av)
-assert(type(av)=="string",`"Window.GetTabByTitle[param 1]". 'string' expected, got {typeof(av)}`)
-
-for aw=1,#S do
-if S[aw].Title==av then
-return S[aw]
-end
-end
-end
-
-ag.NewNotificationGroup=ag.NewNotifyGroup
-ag.SetDefaultNotifyIcon=SetNotifyDefaultIcon
-ag.GetTabByName=ag.GetTabByTitle
-ag.Notificafion=ag.Notify
-
-R.Window=ag
-end local aa=function(
-
-aa, ab)
-local ac=ab.Size.Y.Offset
-local ad=UDim2.new(0,aa.TabSize or s.Default.TabSize,1,-ac)
-local ae=UDim2.new(1,-ad.X.Offset,1,-ac)
-
-local af=E("ScrollingFrame","TabsScroll",{
-AutomaticCanvasSize=Enum.AutomaticSize.Y,
-ScrollingDirection=Enum.ScrollingDirection.Y,
-Position=UDim2.new(0,0,1,0),
-AnchorPoint=Vector2.new(0,1),
-ScrollBarThickness=2.2,
-BackgroundTransparency=1,
-ScrollBarImageTransparency=0.2,
-CanvasSize=UDim2.new(),
-BorderSizePixel=0,
-Size=ad,
-ThemeTag={
-ScrollBarImageColor3="Colors.ScrollBar"
-},
-Elements={
-Padding={
-PaddingLeft=UDim.new(0,10),
-PaddingRight=UDim.new(0,10),
-PaddingTop=UDim.new(0,10),
-PaddingBottom=UDim.new(0,10)
-},
-ListLayout={
-Padding=UDim.new(0,5)
-}
-}
-})
-
-local ag=E("Frame","Containers",{
-Size=ae,
-AnchorPoint=Vector2.new(1,1),
-Position=UDim2.new(1,0,1,0),
-BackgroundTransparency=1,
-ClipsDescendants=true
-})
-
-return af,ag end
-
-
-function s:GetIconByName(ab)
-if ab==nil then return end
-assert(ab,`"Library.GetIconByName". 'string' expected, got {typeof(ab)}`)
-
-if O(ab)or#ab==0 then
-return ab
-end
-
-local ac=M(ab)
-
-if self.Icons[ac]then
-return"rbxassetid://"..self.Icons[ac]
-end
-
-for ad,ae in self.Icons do
-if ad:find(ac,1,true)then
-return"rbxassetid://"..ae
-end
-end
-end
-
-function s:IsValidTheme(ab)
-assert(type(ab)=="string",`"Library.IsValidTheme". string extected, got {typeof(ab)}`)
-
-return self.Themes[ab]~=nil
-end
-
-function s:GetThemes()
-local ab={}
-for ac,ad in self.Themes do
-table.insert(ab,ac)
-end
-return ab
-end
-
-function s:GetTheme(ab)
-assert(ab==nil or type(ab)=="string",`"Library.GetTheme". 'string' expected, got {typeof(ab)}`)
-
-if ab==nil then
-return self.CurrentTheme
-end
-
-local ac=self.Themes[ab]
-assert(ac~=nil,`"Library.GetTheme". theme not found: {ab}`)
-return ac
-end
-
-function s:SetTheme(ab)
-assert(type(ab)=="string",`"Library.SetTheme". string extected, got {typeof(ab)}`)
-local ac=self.Themes[ab]
-assert(ac,`"Library.SetTheme". theme not found: {ab}`)
-
-self.CurrentTheme=ac
-self.WindowSettings.SelectedTheme=ac.Name
-
-C:update()
-end
-
-function s:SetUIScale(ab)
-local ac=B.MIN_SCALE
-local ad=B.MAX_SCALE
-
-assert(type(ab)=="number",`"Library.SetUIScale". 'number' expected, got {typeof(ab)}`)
-assert(ab>=ac and ab<=ad,`"Library.SetUIScale". Min Scale: {ac}, Max Scale: {ad}`)
-
-I.Scale.Scale=P(ab)
-end
-
-function s:GetMaxScale()
-return B.MAX_SCALE
-end
-
-function s:GetMinScale()
-return B.MIN_SCALE
-end
-
-function s:GetCurrentTheme()
-if not self.LOADED_UI_LIBRARY then
-return error("failed to get current theme: UI is not loaded",2)
-end
-return self.CurrentTheme
-end
-
-function s:Destroy()
-for ab,ac in self.Connections do
-ac:Disconnect()
-end
-
-if I and I:GetAttribute"UID"==self.SCREENGUI_UID then
-pcall(I.Destroy,I)
-end
-end
-
-function s:MakeWindow(ab)
-if self.LOADED_UI_LIBRARY then
-return error("you can create only 1 Window",2)
-end
-
-local ac=math.random()
-I:SetAttribute("UID",ac)
-self.SCREENGUI_UID=ac
-I:ClearAllChildren()
-
-local ad=E("UIScale","Scale",I,{
-Scale=P(1)
-})
-
-local ae={
-Title=ab[1]or ab.Name or ab.Title,
-SubTitle=ab[2]or ab.SubName or ab.SubTitle,
-ScriptFolder=ab[3]or ab.ScriptFolder or ab.FolderName
-}
-
-assert(type(ae.Title)=="string",`"Window.Title". 'string' expected, got {typeof(ae.Title)}`)
-assert(type(ae.SubTitle)=="string",`"Window.SubTitle". 'string' expected, got {typeof(ae.SubTitle)}`)
-
-if ae.ScriptFolder~=nil and type(ae.ScriptFolder)~="string"then
-return error(`"Window.ScriptFolder". 'string', or nil expected, got {typeof(ae.ScriptFolder)}`,2)
-end
-
-local af=(function()
-local af=ae.ScriptFolder
-local ag=false
-
-local ah,ai=pcall(function()
-return af and k:JSONDecode(f(`{af}/LibrarySettings.json`))
-end)
-
-if type(ai)~="table"then
-ai={}
-end local aj=function()
-
-
-ag=false
-
-return pcall(function()
-return z(`{af}/LibrarySettings.json`,k:JSONEncode(ai))
-end)end local ak=function(
-
-
-ak, al, am)
-rawset(ai,al,am)
-
-if af and not ag then
-ag=true
-task.delay(0.5,aj)
-end end
-
-
-return setmetatable({},{
-__newindex=ak,
-__index=ai
-})
+as.GetClosestChest=aC;
+as.GetClosestBerry=aD;
+as.HasBerries=aB;
+
+return at
 end)()
 
-local ag=(function()
-local ag=ae.ScriptFolder
-local ah=false
+as.Services=(function()
+local at={}
 
-local ai,aj=pcall(function()
-return ag and k:JSONDecode(f(`{ag}/ScriptFlags.json`))
-end)
+at.Network=(function()
+local au={}
 
-if type(aj)~="table"then
-aj={}
-end local ak=function()
+local av=o.InvokeServer;
 
+local aw="RF/%s";
+local ax="RE/%s";
 
-ah=false
+local ay={};local az=function(
 
-return pcall(function()
-z(`{ag}/ScriptFlags.json`,k:JSONEncode(aj))
-end)end local al=function(
+az, aA, aB)
+local aC=I:WaitForChild(az:format(aB))
 
+if not aC then
+return error(`Cannot found {aB}: {aA} in Network`,2)
+end
 
-al, am, an)
-rawset(aj,am,an)
-
-if ag and not ah then
-ah=true
-task.delay(0.5,ak)
-end end local am=function()
+return aC end
 
 
+function au.InvokeCommF(...)
+return av(o,...)
+end
 
-table.clear(aj)
-return pcall(function()
-return ag and c(`{ag}/ScriptFlags.json`)
-end)end
+function au.TravelTo(aA)
+return au.InvokeCommF(`Travel{ar.SeasName[aA]}`)
+end
 
+function au.GetProgress(...)
+local aA=...
 
-return setmetatable({},{
-__newindex=al,
-__call=am,
-__index=aj
-})
+if ay[aA]and ay[aA].Debounce<0 then
+return unpack(ay[aA].Args)
+end
+
+ay[aA]={
+Debounce=tick()+2.5,
+Args=table.pack(au.InvokeCommF(...))
+}
+
+return unpack(ay[aA].Args)
+end
+
+function au:RemoteFunction(aA)
+return az(aw,"RemoteFunction",aA)
+end
+
+function au:RemoteEvent(aA)
+return az(ax,"RemoteEvent",aA)
+end
+
+return au
 end)()
 
-self.ThemesObjects=C
-self.WindowSettings=af
-self.Flags=ag
+at.GoodSignal=(function()
+local au={}
+local av={}
 
-if type(af.SelectedTheme)=="string"and self:IsValidTheme(af.SelectedTheme)then
-self:SetTheme(af.SelectedTheme)
-else
-self:SetTheme(self.Default.Theme)
-end
+av.__index=av
+au.__index=au
 
-self.LOADED_UI_LIBRARY=true
-
-local ah=self.Default.UISize
-
-if af and type(af.UISize)=="table"then
-local ak,al=unpack(af.UISize)
-
-if type(ak)=="number"and type(al)=="number"then
-local am=I.AbsoluteSize
-ak=math.clamp(ak,430,1000)
-al=math.clamp(al,200,500)
-ah=UDim2.fromOffset(ak,al)
-end
-end
-
-local ak=E("Frame","Window",I,{
-Position=UDim2.new(0.5,-ah.X.Offset/2,0.5,-ah.Y.Offset/2),
-Active=true,
-Size=ah,
-ThemeTag={
-BackgroundTransparency="BackgroundTransparency"
-},
-Elements={
-Corner=UDim.new(0,8),
-Gradient={
-Rotation=45,
-ThemeTag={
-Color="Colors.Background"
-}
-}
-}
-})
-
-u(ak.Destroying,function()
-self:Destroy()
-end)
-
-u(I:GetAttributeChangedSignal"UID",function()
-self:Destroy()
-ak:Destroy()
-end)
-
-D.Draggable(ak,ad,0.5)
-
-local al=E("Folder","Components",ak)
-local am=E("Folder","Dropdowns",I)
-
-local an=E("Frame","TopBar",al,{
-Size=UDim2.new(1,0,0,28),
-BackgroundTransparency=1
-})
-
-local ao=E("TextLabel","Title",an,{
-TextXAlignment=Enum.TextXAlignment.Left,
-AutomaticSize=Enum.AutomaticSize.XY,
-Position=UDim2.new(0,15,0.5,0),
-AnchorPoint=Vector2.new(0,0.5),
-Text=ae.Title,
-TextSize=12,
-BackgroundTransparency=1,
-ThemeTag={
-TextColor3="Colors.Text.Default",
-Font="Font.Bold"
-},
-Childs={
-E("TextLabel","SubTitle",{
-Size=UDim2.fromScale(0,1),
-AutomaticSize="X",
-AnchorPoint=Vector2.new(0,1),
-Position=UDim2.new(1,5,0.9),
-Text=ae.SubTitle,
-BackgroundTransparency=1,
-TextXAlignment="Left",
-TextYAlignment="Bottom",
-TextSize=8,
-ThemeTag={
-TextColor3="Colors.Text.Dark",
-Font="Font.Normal"
-}
-})
-}
-})
-
-local ap=E("Folder","Buttons",an,{
-Childs={
-E("ImageButton","Close",{
-Size=UDim2.new(0,18,0,18),
-Position=UDim2.new(1,-10,0.5),
-AnchorPoint=Vector2.new(1,0.5),
-BackgroundTransparency=1,
-BackgroundColor3=Color3.fromRGB(255,35,35),
-AutoButtonColor=false,
-ThemeTag={
-Image="Icons.Close"
-},
-Elements={
-Corner=UDim.new(0.2,0)
-}
-}),
-E("ImageButton","Minimize",{
-Size=UDim2.new(0,18,0,18),
-Position=UDim2.new(1,-35,0.5),
-AnchorPoint=Vector2.new(1,0.5),
-BackgroundTransparency=1,
-BackgroundColor3=Color3.new(1,1,1),
-Image="rbxassetid://10734896206",
-AutoButtonColor=false,
-Elements={
-Corner=UDim.new(0.2,0)
-}
-})
-}
-})
-
-local aq=ap.Minimize
-local ar=ap.Close
-
-local as=setmetatable(ae,{
-__index=R.Window
-})
-
-local at,au=aa(af,an)
-
-at.Parent=al
-au.Parent=al
-
-local av=table.freeze{
-ContainerHolder=au,
-TabsContainer=at,
-Components=al,
-MainFrame=ak
-}
-
-function as:GetElements()
-return av
-end
-
-local aw=E("Frame","ControlWindowSize",ak,{
-Size=UDim2.new(0,35,0,35),
-Position=ak.Size,
-AnchorPoint=Vector2.new(0.8,0.8),
-BackgroundTransparency=1,
-Active=true,
-Elements={
-Corner=UDim.new(0,6)
-},
-ThemeTag={
-BackgroundColor3="Colors.OnPrimary"
-}
-})
-
-local ax=E("Frame","ControlTabsSize",ak,{
-Size=UDim2.new(0,16,0.75,-30),
-Position=UDim2.new(0,at.Size.X.Offset,0.5,15),
-AnchorPoint=Vector2.new(0.5,0.5),
-BackgroundTransparency=1,
-Active=true,
-Elements={
-Corner=UDim.new(0,6)
-},
-ThemeTag={
-BackgroundColor3="Colors.OnPrimary"
-}
-})local ay=function(
-
-ay)
-local az=ay:GetAttribute"Resizing"
-ay:SetAttribute("Resizing",tick())
-
-if az and(tick()-az)<=0.1 then
+do
+function av:Disconnect()
+if not self.Connected then
 return nil
 end
 
-J(ay,"BackgroundTransparency",0.5,0.3):Play()
-while tick()-ay:GetAttribute"Resizing"<=0.1 do task.wait()end
-J(ay,"BackgroundTransparency",1,0.4):Play()end
+local aw=table.find(self.Signal,self)
+
+if aw then
+table.remove(self.Signal,aw)
+end
+
+self.Function=nil
+self.Connected=false
+end
+
+function av:Fire(...)
+if not self.Function then
+return nil
+end
+
+task.spawn(self.Function,...)
+end
+
+function av.new()
+return setmetatable({
+Connected=true
+},av)
+end
+
+setmetatable(av,{
+__index=function(aw,ax)
+error(("Attempt to get Connection::%s (not a valid member)"):format(tostring(ax)),2)
+end,
+__newindex=function(aw,ax,ay)
+error(("Attempt to set Connection::%s (not a valid member)"):format(tostring(ax)),2)
+end
+})
+end
+
+function au:Connect(aw)
+assert(type(aw)=="function","function expected, got "..type(aw))
+
+local ax=av.new()
+ax.Function=aw
+ax.Signal=self
+
+table.insert(self.Connections,ax)
+return ax
+end
+
+function au:Once(aw)
+local ax;
+ax=self:Connect(function(...)
+aw(...)
+ax:Disconnect()
+end)
+return ax
+end
+
+function au:Wait()
+local aw=coroutine.running()
+local ax;ax=self:Connect(function(...)
+ax:Disconnect()
+task.spawn(aw,...)
+end)
+return coroutine.yield()
+end
+
+function au:Fire(...)
+for aw,ax in ipairs(self.Connections)do
+if ax.Connected then
+ax:Fire(...)
+end
+end
+end
+
+function au.new()
+return setmetatable({
+Connections={}
+},au)
+end
+
+au.Signals={
+BvChanged=au.new(),
+Notify=au.new(),
+Error=au.new(),
+}
+
+setmetatable(au,{
+__index=function(aw,ax)
+error(`Attempt to get Signal::{tostring(ax)} (not a valid member)`,2)
+end,
+__newindex=function(aw,ax,ay)
+error(`Attempt to set Signal::{tostring(ax)} (not a valid member)`,2)
+end
+})
+
+return au
+end)()
+
+at.PlayerManager=(function()
+local au={}
+
+local av=Vector3.zero local aw=function()
 
 
-u(aw:GetPropertyChangedSignal"Position",function()
-ay(aw)
-local az=aw.Position
-ak.Size=az
-af.UISize={az.X.Offset,az.Y.Offset}
+local aw=C.Character
+return X(aw)and aw.Humanoid.RootPart end
+
+
+function au:GetRootPartPosition()
+local ax=aw()
+
+if ax then
+av=ax.Position
+end
+
+return av
+end
+
+an(C.CharacterAdded,function(...)PlayerCharacter=...end)
+an(C.CharacterRemoving,function()PlayerCharacter=nil end)
+
+return au
+end)()
+
+at.Hooking=(function()
+local au={}
+
+local av=aa({"Z","X","C","V","F"},true)
+
+local aw=f.rz_EnabledOptions;
+local ax;
+
+local ay=0;
+local az=0;local aA=function(
+
+aA)
+if(tick()-ay)<=2 or f[aA]then
+return ax
+end end local aB=function()
+
+
+
+local aB=tick()
+
+if(aB-ay)<=2 or(aB-az)<=0 then
+return nil
+else
+az=aB+(if e.SmoothMode then 0.5 else 0.25)
+end
+
+local aC=C.Character
+local aD=X(aC)and aC:FindFirstChildOfClass"Tool"
+
+if aD and aD.ToolTip and aC.Humanoid.RootPart then
+local aE=if aD.ToolTip=="Gun"then 250 else 900
+
+local aF=aC.Humanoid.RootPart.Position
+local aG=s:GetChildren()
+local aH=u:GetChildren()
+
+ax=nil
+
+for aI=1,#aG do
+local aJ=aG[aI]
+if aJ==aC or not ag(aJ)then continue end
+local aK=X(aJ)and aJ.Humanoid.RootPart
+
+if aK then
+local aL=(aK.Position-aF).Magnitude
+
+if aL<=aE then
+ax,aE=aK,aL
+end
+end
+end
+
+for aI=1,(if e.NoAimMobs then 0 else#aH)do
+local aJ=aH[aI]
+local aK=X(aJ)and aJ.Humanoid.RootPart
+
+if aK then
+local aL=(aK.Position-aF).Magnitude
+
+if aL<=aE then
+ax,aE=aK,aL
+end
+end
+end
+end end local aC=function()
+
+
+
+if f.rz_enabled_bypass or not ad.WALKSPEED_BYPASS_ENABLED then return end
+f.rz_enabled_bypass=true
+
+local aC=ac.HookProperty
+
+local aD;
+aD=M(C,"__newindex",function(aE,aF,aG)
+if aF=="WalkSpeed"and aE.Name=="Humanoid"then
+aC(aE,aF,aG)
+return aD(aE,"WalkSpeed",f.WalkSpeedBypass or aG)
+else
+return aD(aE,aF,aG)
+end
+end)end local aD=function()
+
+
+
+if not ad.SILENT_AIM_ENABLED then return end
+if f.rz_original_namecall then return end
+
+B:Connect(aB)
+
+local aD={
+["RE/ShootGunEvent"]=function(...)
+local aD,aE=...
+
+if typeof(aD)=="Vector3"and type(aE)=="table"and#aE~=0 then
+local aF=aA"AimBot_Gun"
+
+if aF then
+return aF.Position,{aF}
+end
+end
+
+return...
+end,
+["RemoteEvent"]=function(...)
+local aD,aE=...
+
+if typeof(aD)=="Vector3"and not aE then
+local aF=aA"AimBot_Skills"
+
+if aF then
+return aF.Position
+end
+elseif aD=="TAP"and typeof(aE)=="Vector3"then
+local aF=aA"AimBot_Tap"
+
+if aF then
+return"TAP",aF.Position
+end
+end
+
+return...
+end
+}
+
+local aE=ac.OriginalIndex
+local aF=string.lower
+
+local aG;
+aG=M(game,"__namecall",function(aH,...)
+local aI=aD[aE(aH,"Name")]
+
+if aI and aF(getnamecallmethod())=="fireserver"then
+return aG(aH,aI(...))
+else
+return aG(aH,...)
+end
 end)
 
-u(ax:GetPropertyChangedSignal"Position",function()
-ay(ax)
-local az=ax.Position
-at.Size=UDim2.new(0,az.X.Offset,1,-an.Size.Y.Offset)
-au.Size=UDim2.new(1,-at.Size.X.Offset,1,-an.Size.Y.Offset)
-af.TabSize=az.X.Offset
+f.rz_original_namecall=aG end
+
+
+as.HookGame=function()
+task.delay(1,aC)
+task.delay(1,aD)
+end
+
+function au:SetAimTarget(aE)
+ax,ay=aE,tick()
+end
+
+return au
+end)()
+
+at.Inventory=(function()
+local au={
+Unlocked=ai(false),
+Mastery=ai(0),
+Count=ai(0),
+MasteryRequirements={},
+
+Loaded=false,
+Items={}
+}
+
+local av=at.GoodSignal.Signals.Notify local aw=function(
+
+aw, ax)
+if type(ax)~="table"then return end
+
+local ay=ax.Name
+aw.Items[ay]=ax
+
+if not aw.Unlocked[ay]then aw.Unlocked[ay]=true end
+if ax.Count then aw.Count[ay]=ax.Count end
+if ax.Mastery then aw.Mastery[ay]=ax.Mastery end
+if ax.MasteryRequirements then aw.MasteryRequirements[ay]=ax.MasteryRequirements end end local ax=function(
+
+
+ax, ay)
+if type(ay)=="string"then
+ax.MasteryRequirements[ay]=nil
+ax.Unlocked[ay]=nil
+ax.Mastery[ay]=nil
+ax.Count[ay]=nil
+ax.Items[ay]=nil
+end end
+
+
+local ay={
+["ItemChanged"]=function(...)aw(au,...)end;
+["ItemAdded"]=function(...)aw(au,...)end;
+["ItemRemoved"]=function(...)ax(au,...)end;
+["Notify"]=function(...)av:Fire(...)end;
+}local az=function(
+
+az, ...)
+if az and ay[az]then
+ay[az](...)
+end end local aA=function()
+
+
+
+return at.Network.InvokeCommF"getInventory"end
+
+
+task.defer(function()
+an(p.OnClientEvent,az)
+local aB=aA();
+
+while type(aB)~="table"and task.wait(1)do
+aB=aA()
+end
+
+for aC=1,#aB do
+aw(au,aB[aC])
+end
+
+au.Loaded=true
 end)
 
-D.Draggable(aw,ad,0.68,function(az,aA,aB,aC)
-return UDim2.fromOffset(math.clamp(aA,430,1000),math.clamp(aC,200,500))
+return au
+end)()
+
+at.Enemies=(function()
+local au=aa({
+"__CakePrince","__PirateRaid","__TyrantSkies","__Bones","__Elite","__Others","__Ectoplasm"
+},{})
+
+local av={
+["Deandre"]="Elite",["Diablo"]="Elite",["Urban"]="Elite",
+
+["Reborn Skeleton"]="Bones",["Living Zombie"]="Bones",
+["Demonic Soul"]="Bones",["Posessed Mummy"]="Bones",
+
+["Head Baker"]="CakePrince",["Baking Staff"]="CakePrince",
+["Cake Guard"]="CakePrince",["Cookie Crafter"]="CakePrince",
+
+["Sun-kissed Warrior"]="TyrantSkies",["Skull Slayer"]="TyrantSkies",
+["Isle Champion"]="TyrantSkies",["Serpent Hunter"]="TyrantSkies",
+
+["Ship Deckhand"]="Ectoplasm",["Ship Engineer"]="Ectoplasm",
+["Ship Officer"]="Ectoplasm",["Ship Steward"]="Ectoplasm",
+}
+
+local aw=as.SpawnLocations
+local ax=aq.Enemies
+
+local ay=ac.UnprotectObject
+local az=ac.ProtectObject
+local aA=ac.OriginalIndex
+
+local aB=d.GetBringAttachment()
+
+local aC={}
+local aD={}
+
+local aE={}
+local aF={}
+
+au.SpawnLocations=aE
+au.EnemyLocations=aF
+
+au.PirateRaid=0
+
+do
+local aG=aa({"Ice Admiral","rip_indra"},true)
+local aH={}local aI=function(
+
+aI, aJ, aK, aL)
+aH[aI]={
+BossSpawn=CFrame.new(unpack(aJ)),
+LevelReq=aL,
+Quest=aK
+}end
+
+
+function au.IsABoss(aJ)
+return aH[aJ]~=nil
+end
+
+function au.EnemyIsBoss(aJ)
+return(aJ:GetAttribute"IsBoss"or aJ:GetAttribute"RaidBoss")and not aG[aJ.Name]
+end
+
+function au:GetBosses()
+return aH
+end
+
+
+aI("The Gorilla King",{-1128,6,-451},{"JungleQuest",CFrame.new(-1598,37,153)},20)
+aI("Chef",{-1131,14,4080},{"BuggyQuest1",CFrame.new(-1140,4,3829)},55)
+aI("Yeti",{1185,106,-1518},{"SnowQuest",CFrame.new(1385,87,-1298)},105)
+aI("Vice Admiral",{-4807,21,4360},{"MarineQuest2",CFrame.new(-5035,29,4326),2},130)
+aI("Warden",{5230,4,749},{"ImpelQuest",CFrame.new(5191,4,692),1},220)
+aI("Chief Warden",{5230,4,749},{"ImpelQuest",CFrame.new(5191,4,692),2},230)
+aI("Swan",{5230,4,749},{"ImpelQuest",CFrame.new(5191,4,692)},240)
+aI("Magma Admiral",{-5694,18,8735},{"MagmaQuest",CFrame.new(-5319,12,8515)},350)
+aI("Fishman Lord",{61350,31,1095},{"FishmanQuest",CFrame.new(61122,18,1567)},425)
+aI("Wysper",{-7927,5551,-637},{"SkyExp1Quest",CFrame.new(-7861,5545,-381)},500)
+aI("Thunder God",{-7751,5607,-2315},{"SkyExp2Quest",CFrame.new(-7903,5636,-1412)},575)
+aI("Cyborg",{6138,10,3939},{"FountainQuest",CFrame.new(5258,39,4052)},675)
+
+
+aI("Diamond",{-1569,199,-31},{"Area1Quest",CFrame.new(-427,73,1835)},750)
+aI("Jeremy",{2316,449,787},{"Area2Quest",CFrame.new(635,73,919)},850)
+aI("Orbitus",{-2086,73,-4208},{"MarineQuest3",CFrame.new(-2441,73,-3219)},925)
+aI("Smoke Admiral",{-5078,24,-5352},{"IceSideQuest",CFrame.new(-6061,16,-4904)},1150)
+aI("Awakened Ice Admiral",{6473,297,-6944},{"FrostQuest",CFrame.new(5668,28,-6484)},1400)
+aI("Tide Keeper",{-3711,77,-11469},{"ForgottenQuest",CFrame.new(-3056,240,-10145)},1475)
+
+
+aI("Stone",{-1049,40,6791},{"PiratePortQuest",CFrame.new(-449,109,5950)},1550)
+aI("Hydra Leader",{5836,1019,-83},{"VenomCrewQuest",CFrame.new(5214,1004,761)},1675)
+aI("Kilo Admiral",{2904,509,-7349},{"MarineTreeIsland",CFrame.new(2485,74,-6788)},1750)
+aI("Captain Elephant",{-13393,319,-8423},{"DeepForestIsland",CFrame.new(-13233,332,-7626)},1875)
+aI("Beautiful Pirate",{5370,22,-89},{"DeepForestIsland2",CFrame.new(-12682,391,-9901)},1950)
+aI("Cake Queen",{-710,382,-11150},{"IceCreamIslandQuest",CFrame.new(-818,66,-10964)},2175)
+
+table.freeze(aH)
+end
+
+do
+local aG="Island "local aH=function(
+
+aH)
+if string.sub(aH.Name,1,#aG)==aG then
+V=nil
+end end local aI=function(
+
+
+aI)
+local aJ=af(aI.Name)
+aF[aJ]=aF[aJ]or{}
+
+local aK=aI.CFrame+Vector3.one*25
+aE[aJ]=aI
+
+if not table.find(aF[aJ],aK)then
+table.insert(aF[aJ],aK)
+end end
+
+
+for aJ,aK in x:GetChildren()do aI(aK)end
+an(x.ChildAdded,aI)
+an(y.ChildAdded,aH)
+end local aG=function(
+
+aG)
+return not aD[aG]end local aH=function(
+
+
+aH, aI, aJ, aK, aL)
+while aI.Parent==u and X(_,aK)and aL.Parent==aI do
+local aM=aC[aJ].Position
+
+if(aM-aL.Position).Magnitude<=e.BringDistance then
+if aH.Position~=aM then
+aH.Position=aM
+end
+else
+break
+end
+
+task.wait(0.25)
+end end local aI=function(
+
+
+aI)
+if aD[aI]then return end
+aD[aI]=true
+
+local aJ=aI.Name
+local aK=aI.Humanoid
+local aL=aK.RootPart
+
+local aM=aB:Clone()
+local aN=aM.AlignPosition
+
+aM.Parent=aL
+aH(aN,aI,aJ,aK,aL)
+
+aD[aI]=nil
+
+if aM then
+aM:Destroy()
+end end
+
+
+function au.GetEnemy(aJ)
+if type(aJ)=="table"then
+return au:GetClosest(aJ)
+else
+return au:GetEnemyByTag(aJ)
+end
+end
+
+function au.IsSpawned(aJ)
+local aK=aE[aJ]
+
+if aK and aK.Parent==x then
+return aK:GetAttribute"Active"
+else
+return au:GetEnemyByTag(aJ)~=nil
+end
+end
+
+function au:GetMobsName(aJ)
+local aK={}
+for aL,aM in av do
+if aM==aJ then
+table.insert(aK,aL)
+end
+end
+return aK
+end
+
+function au.BringMobs(aJ,aK,aL)
+local aM=X(aJ)and aJ.Humanoid.RootPart
+if not aM then return end
+
+local aN=aJ.Name
+W(9e9)
+
+if not e.BringMobs then
+if not aC[aN]then
+aC[aN]=aM.CFrame
+end
+
+aM.CFrame=aC[aN]
+return nil
+end
+
+local aO=at.PlayerManager:GetRootPartPosition()
+
+local aP=aK or aM.CFrame
+local aQ=aL or e.BringDistance
+
+if not aC[aN]or(aP.Position-aC[aN].Position).Magnitude>25 then
+aC[aN]=aP
+end
+
+for aR,aS in au:GetTagged(aN)do
+if not aS:FindFirstChild"CharacterReady"then continue end
+if aS.Parent~=u or aS.Name~=aN then continue end
+
+local aT=X(aS)and aS.Humanoid.RootPart
+if not aT then continue end
+
+if(aO-aT.Position).Magnitude<aQ then
+task.spawn(aI,aS)
+end
+end
+end
+
+function au:GetTagged(aJ)
+return self[`__{aJ}`]or self.__Others[aJ]
+end
+
+function au:GetEnemyByTag(aJ)
+local aK=ax[aJ]
+
+if aK and aK.Parent~=nil and X(aK)then
+return aK
+end
+
+local aL=self:GetTagged(aJ)
+if not aL then return end
+
+for aM=1,#aL do
+if X(aL[aM])then
+return aL[aM]
+end
+end
+end
+
+function au:GetClosest(aJ)
+local aK=table.concat(aJ,"_")
+local aL=ax[aK]
+
+if aL and aL.Parent~=nil and X(aL)then
+return aL
+end
+
+local aM,aN=math.huge
+
+for aO=1,#aJ do
+local aP=self:GetClosestByTag(aJ[aO])
+local aQ=X(aP)and aP.Humanoid.RootPart
+local aR=aQ and C:DistanceFromCharacter(aQ.Position)
+
+if aQ and aR<=aM then
+aM,aN=aR,aP
+end
+end
+
+if aN then
+ax[aK]=aN
+return aN
+end
+end
+
+function au:GetClosestByTag(aJ)
+local aK=ax[aJ]
+
+if aK and aK.Parent~=nil and X(aK)then
+return aK
+end
+
+local aL=self:GetTagged(aJ)
+
+if aL and#aL>0 then
+local aM=at.PlayerManager:GetRootPartPosition()
+local aN,aO=math.huge
+
+for aP=1,#aL do
+local aQ=aL[aP]
+local aR=X(aQ)and aQ.Humanoid.RootPart
+if not aR then continue end
+
+local aS=(aM-aR.Position).Magnitude
+
+if aS<=50 then
+ax[aJ]=aQ
+return aQ
+elseif aS<=aN then
+aN,aO=aS,aQ
+end
+end
+
+if aO then
+ax[aJ]=aO
+return aO
+end
+end
+end
+
+do
+local aJ=Vector3.new(-5556,314,-2988)
+local aK=au.__Others
+local aL=ar.Sea local aM=function(
+
+aM, aN)
+if table.find(aM,aN)then return end
+
+local aO=aN:WaitForChild"Humanoid"
+
+if aO and aO.Health>0 then
+table.insert(aM,aN)
+aO.Died:Once(function()
+table.remove(aM,table.find(aM,aN))
+end)
+end end local aN=function(
+
+
+aN)
+if aN.Name=="rip_indra True Form"or aN.Name=="Blank Buddy"then return end
+
+local aO=aN:WaitForChild("Humanoid",600)
+if not aO or aO.Health<=0 then return end
+
+local aP=aN:WaitForChild"HumanoidRootPart"
+
+if aP and(aP.Position-aJ).Magnitude<=750 then
+task.spawn(aM,au.__PirateRaid,aN)
+au.PirateRaid=tick()
+end end local aO=function(
+
+
+aO)
+local aP=aO.Name
+local aQ=`__{aP}`
+
+aK[aP]=aK[aP]or{}
+task.spawn(aM,aK[aP],aO)
+
+if aL==3 then
+task.spawn(aN,aO)
+end
+
+if au[aQ]then
+task.spawn(aM,au[aQ],aO)
+elseif av[aP]then
+task.spawn(aM,au[`__{av[aP]}`],aO)
+end end
+
+
+for aP,aQ in h:GetTagged"BasicMob"do aO(aQ)end
+an(h:GetInstanceAddedSignal"BasicMob",aO)
+end
+
+return au
+end)()
+
+at.ToolService=(function()
+local au={}
+
+local av=at.Network.InvokeCommF
+local ax=aq.Tools
+local ay=25000 local az=function(
+
+az)
+local aA=C.Character:FindFirstChildOfClass"Tool"
+
+if aA and aA.ToolTip==az then
+return aA
+end
+
+for aB,aC in C.Backpack:GetChildren()do
+if aC:IsA"Tool"and aC.ToolTip==az then
+return aC
+end
+end end local aA=function()
+
+
+
+if G.Value<ay then return end
+
+av("BuyHaki","Buso")end local aB=function(
+
+
+aB, aC)
+return aB.ToolTip=="JobTool"and aB:GetAttribute"JobId"==aC end local aC=function(
+
+
+aC, aD)
+local aE=C.Character
+if not X(aE)then return end
+
+local aF=if aD then`toolTip_{aC}`else aC
+local aG=ax[aF]
+
+if aG and(aG.Parent==aE or aG.Parent==C.Backpack)then
+return aG
+end
+
+local aH=if aD then az(aC)else(aE:FindFirstChild(aC)or C.Backpack:FindFirstChild(aC))
+
+if aH then
+ax[aF]=aH
+return aH
+end end
+
+
+function au.GetToolMastery(aD,...)
+local aE=aC(aD,...)
+return aE and aE:GetAttribute"Level"or 0
+end
+
+function au.EquipJobTool(aD)
+local aE=C.Character
+if not X(aE)then return end
+
+local aF=aE:FindFirstChildOfClass"Tool"
+
+if aF and aB(aF,aD)then
+return aF
+end
+
+for aG,aH in C.Backpack:GetChildren()do
+if aH:IsA"Tool"and aB(aH,aD)then
+_(aH)
+return aH
+end
+end
+end
+
+function au.VerifyTool(aD,...)
+return aC(aD,...)~=nil
+end
+
+function au.EnableBuso()
+local aD=C.Character
+if X(aD)and not aD:FindFirstChild"HasBuso"then
+return if aD:HasTag"Buso"then av"Buso"else aA()
+end
+end
+
+au.EquipTool=ap
+
+return au
+end)()
+
+at.FastAttack=(function()
+local au={
+attackPlayers=true,
+attackMobs=true,
+}
+
+local av={
+["Blox Fruit"]=35,
+["Melee"]=40,
+["Sword"]=40,
+["Gun"]=200,
+}
+
+local ax={
+["Dual Flintlock"]=2
+}
+
+local ay={
+["Dragonstorm"]=300
+}
+
+local az={
+["Skull Guitar"]="TAP",
+["Bazooka"]="Position",
+["Cannon"]="Position",
+["Dragonstorm"]="Overheat"
+}
+
+local aA=aa({"Light-Light","Ice-Ice"},true)
+
+local aB=at.Network
+
+local aC=d.SendLeftClickRemote
+local aD=d.CheckAttackDebounce
+local aE=d.GetPartBoundsInBox
+local aF=d.PlayHitAnimation
+local aG=d.SetHitsCooldown
+local aH=d.IsAttackWeapon
+local aI=d.NewDebounce
+local aJ=d.GetMaxHits
+local aK=d.CheckStun
+
+local aL=d.CanSendHitsToServer
+local aM=d.SendHitsToServer
+
+local aN=d.UpdateShootAndValidator
+local aO=d.CanGetGunValidator
+
+local aP=aB:RemoteEvent"ShootGunEvent"
+
+local aQ=0
+local aR=0.4
+local aS=4
+local aT=0
+
+local aU=0
+local aV=0
+local aW=0
+local aX=0
+
+d.SetRigisterAttackEvent(aB:RemoteEvent"RegisterAttack")
+d.SetRigisterHitEvent(aB:RemoteEvent"RegisterHit")local aY=function(
+
+aY)
+return if aY==s then au.attackPlayers else au.attackMobs end local aZ=function(
+
+
+aZ, a_, a0)
+local a1=aJ()
+local a2={}
+local a3={}
+
+for a4,a5 in a0 do
+local a6=a5.Parent
+local a7=a6.Parent
+
+if a7.Parent~=workspace or not X(a6)then continue end
+if a7==s and(a6==C.Character or not ag(a6))then continue end
+if not aY(a7)then continue end
+
+if(tick()-aU)<=0 then
+if(a6.Humanoid.Health/a6.Humanoid.MaxHealth)<=aV then
+continue
+end
+end
+
+if not a3[a6]then
+table.insert(a2,{a6,a5})
+a3[a6]=true
+end
+
+if#a2>=a1 then
+break
+end
+end
+
+if#a2>0 then
+aF(aZ)
+aG(a_)
+aM(a2)
+end end local a_=function()
+
+
+
+if aT>=aS or(tick()-aQ)>=aR then
+aT=0
+end
+
+aQ=tick()
+aT+=1
+return aT end local a0=function(
+
+
+a0)
+local a1=a0.Parent
+local a2=a1.Parent.Parent
+
+if a2~=workspace then
+a2=a2.Parent
+a1=a1.Parent
+end
+
+if a2==workspace and X(a1)and aY(a1.Parent)then
+return true
+end
+
+return false end local a1=function(
+
+
+a1)
+while a1.Parent.Parent~=workspace do
+a1=a1.Parent
+end
+return a1 end local a2=function(
+
+
+a2, a3, a4)
+if not a3.Enabled then return end
+if not aO then return end
+
+local a5=C.Character
+local a6,a7=math.huge
+local a8=at.PlayerManager:GetRootPartPosition()
+
+for a9,ba in a2 do
+if ba:IsDescendantOf(a5)then continue end
+if not a0(ba)then continue end
+
+local bb=(a8-ba.Position).Magnitude
+
+if bb<a6 then
+bb,a7=bb,ba
+end
+
+if bb<50 then
+break
+end
+end
+
+if a7 then
+local a9=a1(a7)
+local ba=az[a3.Name]or"Normal"
+
+if ba=="Overheat"then
+aW=tick()+9e9
+
+while X(a5)and X(a9)and a3.Parent==a5 do
+aN(a3)
+aP:FireServer(a7.Position,{a7})
+task.wait()
+
+if al(a7)>a4 then
+break
+end
+end
+
+aW=0
+elseif ba=="Normal"then
+aN(a3)
+
+for bb=1,(ax[a3.Name]or 1)do
+aP:FireServer(a7.Position,{a7})
+end
+else
+au:ShootInTarget(a7.Position)
+end
+end end local a3=function(
+
+
+a3, a4)
+local a5=C.Character
+
+for a6,a7 in a3 do
+if a7:IsDescendantOf(a5)then continue end
+if not a0(a7)then continue end
+
+local a8=at.PlayerManager:GetRootPartPosition()
+local a9=(a7.Position-a8).Unit
+
+aC(a4,a9,a_())
+return nil
+end end
+
+
+function au.AddAttackDebounce(a4)
+aW=tick()+a4
+end
+
+function au.DontAttackBelowPercent(a4)
+aU=tick()+1
+aV=a4
+end
+
+function au:ShootInTarget(a4)
+if(tick()-aX)<0 then return end
+if not aO then return end
+
+local a5=X(C.Character)and C.Character:FindFirstChildOfClass"Tool"
+if not a5 or a5.ToolTip~="Gun"then return end
+
+local a6=a5:FindFirstChild"Cooldown"
+if not a6 then return end
+
+local a7=az[a5.Name]
+
+if a7=="Position"or a7=="TAP"and a5:FindFirstChild"RemoteEvent"then
+aX=tick()+a6.Value
+aN(a5)
+
+if a7=="TAP"then
+a5.RemoteEvent:FireServer("TAP",a4)
+else
+aP:FireServer(a4)
+end
+end
+end
+
+an(B,function()
+local a4=C.Character
+if not X(a4)then return end
+if(tick()-aW)<=0 then return end
+
+local a5=a4.Humanoid
+local a6=a5.RootPart
+
+if not a6 then return end
+
+local a7=a4:FindFirstChildOfClass"Tool"
+
+if not a7 or not aH(a7)then
+return nil
+end
+
+if aD(a7)and aK(a7)then
+local a8=a7.ToolTip
+local a9=aI(a7)
+local ba=(ay[a7.Name]or av[a8])*2
+
+local bb=aE(a7,a6.CFrame,ba)
+if#bb==0 then return end
+
+if a8=="Blox Fruit"and not aA[a7.Name]then
+local bc=a7:FindFirstChild"LeftClickRemote"
+
+if bc then
+a3(bb,bc)
+end
+elseif a8=="Gun"then
+if e.AutoShoot or e.UseDragonstormSea then
+a2(bb,a7,ba)
+end
+elseif e.AutoAttack then
+aZ(a7,a9,bb)
+end
+end
 end)
 
-D.Draggable(ax,ad,0.68,function(aA,aB)
-return UDim2.new(0,math.clamp(aB,135,210),0.5,15)
+return au
+end)()
+
+return at
+end)()
+
+local at={}
+
+function as.RemoveBasePartsCollision(au)
+local av=au:GetDescendants()
+
+for ax=1,#av do
+local ay=av[ax]
+if ay:IsA"BasePart"and ay.CanCollide then
+ay.CanCollide=false
+end
+end
+end
+
+local au=as.Services.Inventory.MasteryRequirements
+
+function as.UseSkills(av,ax)
+if al(av)>=60 then return end
+
+local ay=C.Character and C.Character:FindFirstChildOfClass"Tool"
+
+if ay then
+local az=ay:GetAttribute"Level"or 0
+local aA=au[ay.Name]
+
+if aA==nil and ay:FindFirstChild"Data"then
+local aB,aC=pcall(require,ay.Data)
+
+if aB and type(aC)=="table"then
+au[ay.Name]=aC.Lvl or false
+else
+au[ay.Name]=false
+end
+end
+
+for aB,aC in ax do
+if not aC then continue end
+if aA and(not aA[aB]or az<aA[aB])then continue end
+
+local aD=at[aB]
+
+if aC and(tick()-(aD or 0))>=0 then
+g:SendKeyEvent(true,aB,false,game)
+g:SendKeyEvent(false,aB,false,game)
+at[aB]=tick()+ad.SKILL_COOLDOWN
+end
+end
+end
+end
+
+as.TweenBodyVelocity=(function()
+local av=ac.ClearNoclipObjects
+local ax=ac.AddNoclipObject
+local ay=ac.UnprotectObject
+local az=ac.ProtectObject
+local aA=ac.OriginalIndex
+
+local aB=as.Services.GoodSignal.Signals.BvChanged
+
+local aC=Instance.new"BodyVelocity"
+aC.Velocity=Vector3.zero
+aC.MaxForce=Vector3.new(math.huge,math.huge,math.huge)
+aC.P=1000
+
+local aD=f.tween_bodyvelocity
+
+if aD then
+ay(aD)
+aD.Parent=nil
+aD:Destroy()
+end
+
+az(aC)
+f.tween_bodyvelocity=aC
+
+local aE,aF=game.IsA,game.FindFirstChild
+
+local aG=false
+local aH="Teleporting"
+
+local aI={}do
+local aJ={}
+ac.SetNoclipObjects(aJ)local aK=function(
+
+aK)
+if aK~=aC and aE(aK,"BasePart")and aK.CanCollide then
+table.insert(aI,aK)
+aJ[aK]=true
+end end local aL=function(
+
+
+aL)
+local aM=table.find(aI,aL)
+aJ[aL]=nil
+
+if aM then
+table.remove(aI,aM)
+end end local aM=function(
+
+
+aM)
+if not aM then return end
+table.clear(aI)
+
+for aN,aO in aM:GetDescendants()do aK(aO)end
+aM.DescendantAdded:Connect(aK)
+aM.DescendantRemoving:Connect(aL)
+
+aM:WaitForChild("Humanoid",9e9).Died:Wait()
+table.clear(aI)
+aJ={}
+SetNoclipObjects(aJ)end
+
+
+an(C.CharacterAdded,aM)
+task.spawn(aM,C.Character)
+end local aJ=function(
+
+aJ)
+if not aG and f.OnFarm then
+aG=true
+end
+
+if f.OnFarm and not C:HasTag(aH)then
+C:AddTag(aH)
+aG=true
+elseif aG and not f.OnFarm and C:HasTag(aH)then
+C:RemoveTag(aH)
+aG=false
+end
+
+if f.OnFarm then
+for aK=1,#aI do
+aI[aK].CanCollide=false
+end
+else
+local aK=aJ.Humanoid.RootPart
+
+if aK and(not aK.CanCollide or not aK.CanTouch)then
+for aL=1,#aI do
+aI[aL].CanCollide=true
+end
+end
+end end local aK=function(
+
+
+aK)
+local aL=aF(aK,"UpperTorso")
+local aM=aF(aK,"Humanoid")
+local aN=f.tween_bodyvelocity
+
+local aO=if f.OnFarm and aL and aM and aM.Health>0 then aL else nil
+
+if aA(aN,"Parent")~=aO then
+aN.Parent=aO
+aB:Fire(aO)
+end
+
+local aP=aA(aN,"Velocity")
+
+if aP~=Vector3.zero and(not aM or not aM.SeatPart or not f.OnFarm)then
+aN.Velocity=Vector3.zero
+end end
+
+
+an(B,function()
+local aL=C.Character
+if X(aL)then
+aJ(aL)
+aK(aL)
+end
 end)
 
-local aA={
-Title="Close Window?",
-Content="You Want Close UI?",
-Options={
-{
-Title="Yes",
-Callback=function()self:Destroy()end
-},
-{
-Title="No"
+return aC
+end)()
+
+as.RunModules=(function()
+local av={}local ax=function(
+
+ax, ay)
+av[ax]=ay end
+
+
+ax("InitializeQuests",function(ay,az)
+local aA=az.GetQuestTasks
+local aB=az.QuestsLookup
+local aC=az.Quests
+
+local aD=({{0,700},{700,1500},{1500,math.huge}})[ar.Sea]
+local aE=aa({"BartiloQuest","MarineQuest","CitizenQuest"},true)
+
+for aF,aG in ay do
+if aE[aF]then continue end
+
+for aH,aI in aG do
+local aJ=aI.LevelReq
+
+if aJ>=aD[1]and aJ<aD[2]then
+local aK,aL=aA(aI)
+local aM=aK[1]
+
+local aN={
+QuestName=aF,
+QuestIndex=aH,
+Quest={
+EnemyLocations=aL,
+LevelReq=aJ,
+Targets=aK
 }
 }
-}
 
-u(aq.MouseEnter,function()aq.BackgroundTransparency=0.65 end)
-u(aq.MouseLeave,function()aq.BackgroundTransparency=1.00 end)
+aB[aM]=aN
+table.insert(aC,aN)
+end
+end
+end
 
-u(ar.MouseEnter,function()ar.BackgroundTransparency=0.65 end)
-u(ar.MouseLeave,function()ar.BackgroundTransparency=1.00 end)
-
-as.SetUIScale=self.SetUIScale
-as.SUBTITLE_LABEL=ao.SubTitle
-as.TITLE_LABEL=ao
-
-local aB=as:StartWindow{
-Resizers={aw,ax},
-MinimizeButton=aq,
-Dropdowns=am,
-MainFrame=ak,
-TopBar=an,
-
-SubTitle=ao.SubTitle,
-Title=ao,
-
-UIScale=ad,
-Flags=ag
-}
-
-u(aq.Activated,function()
-as:MinimizeButton()
+table.sort(aC,function(aF,aG)
+return aF.Quest.LevelReq<aG.Quest.LevelReq
+end)
 end)
 
-u(ar.Activated,function()
-as:Dialog(aA)
+ax("FarmQueue",function(ay)local az=function()
+
+for az,aA in ay do
+e.RunningOption=aA.Name
+local aB=aA.Function()
+if not aB then continue end
+
+if type(aB)=="string"then
+e.RunningMethod=aB
+end
+
+return true
+end
+
+e.RunningOption,e.RunningMethod=nil,nil end
+
+
+while task.wait(e.SmoothMode and 0.25 or 0)do
+if f.teleporting then
+f.OnFarm=true
+elseif e.IgnoreErrors then
+local aA,aB=pcall(az)
+
+if not aA then
+warn(`redz Hub Error in {e.RunningOption} -> {aB}`)
+end
+
+f.OnFarm=(not aA and f.OnFarm)or aB
+else
+f.OnFarm=if az()then true else false
+end
+end
+end)
+
+ax("Translator",function(ay,az)
+local aA=ay.MakeTab
+local aB=false
+
+local aC={}
+local aD={}
+
+local aE="⚠️ "local aF=function(
+
+aF)
+local aG=aF.Title
+local aH=false
+
+if aG:sub(1,#aE)==aE then
+aG=aG:sub(#aE+1,-1)
+aH=true
+end
+
+local aI=az[aG]
+
+if aI then
+if type(aI)=="string"then
+aF:SetTitle((aH and aE or"")..aI)
+return aF
+end
+
+if aI[1]~=nil then
+aF:SetTitle((aH and aE or"")..aI[1])
+end
+
+if aI[2]~=nil then
+aF:SetDesc(aI[2])
+end
+end
+
+return aF end
+
+
+function aD:AddSection(aG)
+return aF(aC["AddSection"](self,aG))
+end
+
+function aD:AddParagraph(aG,aH)
+return aF(aC["AddParagraph"](self,aG,aH))
+end
+
+function aD:AddToggle(aG)
+return aF(aC["AddToggle"](self,aG))
+end
+
+function aD:AddDropdown(aG)
+return aF(aC["AddDropdown"](self,aG))
+end
+
+function aD:AddSlider(aG)
+return aF(aC["AddSlider"](self,aG))
+end
+
+function aD:AddButton(aG)
+return aF(aC["AddButton"](self,aG))
+end
+
+function aD:AddTextBox(aG)
+return aF(aC["AddTextBox"](self,aG))
+end
+
+ay.MakeTab=function(aG,aH)
+local aI=aH[1]or aH.Name or aH.Title
+
+if az[aI]then
+aH[1]=az[aI]
+end
+
+local aJ=aA(aG,aH)
+
+for aK,aL in aD do
+aC[aK]=aJ[aK]
+aJ[aK]=aL
+end
+
+return aJ
+end
+end)
+
+ax("OptionsPlugin",function(ay,az)
+local aA={}
+
+function aA.Toggle(aB,aC,aD)
+local aE=aB:AddToggle{
+Name=aC[1],
+Default=if type(aC[2])~="string"then aC[2]else nil,
+Description=aC[if type(aC[2])=="string"then 2 else 3],
+Callback=function(aE)ay[aD]=aE end,
+Flag=aD
+}
+
+az[aD]=aE
+return aE
+end
+
+return aA
+end)
+
+ax("TweenManager",function()
+local ay={}
+ay.__index=ay
+
+local az={}
+local aA=Enum.EasingStyle.Linear
+
+function ay.new(aB,aC,aD,aE)
+local aF=setmetatable({},ay)
+
+aF.tween=k:Create(aB,TweenInfo.new(aC,aA),{[aD]=aE})
+aF.tween:Play()
+aF.value=aE
+aF.object=aB
+
+if az[aB]then
+az[aB]:destroy()
+end
+
+az[aB]=aF
+return aF
+end
+
+function ay:destroy()
+self.tween:Pause()
+self.tween:Destroy()
+
+az[self.object]=nil
+setmetatable(self,nil)
+end
+
+function ay:stopTween(aB)
+if aB and az[aB]then
+az[aB]:destroy()
+end
+end
+
+return ay
+end)
+
+return av
+end)()
+
+task.defer(function()
+local av={3095250,17884881}
+local ax=aa({6079649301,4985647299},true)
+
+local ay=C
+
+local az={
+["Triple Dark Blade"]=true
+}
+
+local aA={"GANKS","GANKSVolley","AAIM"}
+
+local aB=ar.MaxLevel
+local aC=ar.Sea
+local aD=3025E4
+
+local aE={
+(function(aE)
+if table.find(av,aE.UserId)then
+return true
+elseif ax[aE.UserId]then
+return true
+end
+end),
+(function(aE,aF)
+if aF.Level.Value>aB then
+return true
+elseif aF.Beli.Value>=3e8 and aF.Level.Value<=700 then
+return true
+end
+end),
+(function(aE,aF)
+if aC>1 and aF.Level.Value<700 then
+return true
+elseif aC>2 and aF.Level.Value<1500 then
+return true
+end
+end),
+(function(aE)
+for aF=1,#aA do
+if aE:GetAttribute(aA[aF])then
+return true
+end
+end
+end),
+(function(aE)
+local aF=aE:WaitForChild"leaderstats":WaitForChild"Bounty/Honor"
+
+if aF.Value>aD or aF.Value<0 then
+return true
+end
+end)
+}local aF=function(
+
+aF)
+as.RejoinBlocked=true
+return ay:Kick(`{aF.DisplayName}/@{aF.Name} maybe it's a blox fruits admin`)end
+
+
+local aG=d.NewPlayerAdded
+d.SetPossibleStaffKick(aF)local aH=function(
+
+aH)
+if aH==ay then return end
+
+local aI=aH:WaitForChild("Data",30)
+
+if aI then
+aI:WaitForChild("Level",10)
+aI:WaitForChild("Beli",10)
+task.spawn(aG,aH)
+
+for aJ=1,#aE do
+local aK,aL=pcall(aE[aJ],aH,aI)
+if not aK then
+warn(`redz Hub -> failed to check if @{aH.Name} is a Staff: {aL}`)
+elseif aL then
+return aF(aH)
+end
+end
+end end
+
+
+task.spawn(function()
+table.insert(c,m.PlayerAdded:Connect(aH))
+for aI,aJ in ipairs(m:GetPlayers())do task.defer(aH,aJ)end
+end)
+
+for aI,aJ in av do
+local aK=m:GetFriendsAsync(aJ)
+if not aK then task.wait(5)continue end
+
+while not aK.IsFinished do
+local aL=aK:GetCurrentPage()
+
+for aM=1,#aL do
+local aN=aL[aM]
+local aO=m:GetPlayerByUserId(aN.Id)
+
+if aO then
+task.defer(aF,aO)
+else
+ax[aN.Id]=true
+end
+end
+
+aK:AdvanceToNextPageAsync()
+end
+end
 end)
 
 return as
-end
-
-return s
